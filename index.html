@@ -1,5 +1,138 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-...
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vivendo e Aprendendo</title>
+
+<style>
+:root {
+    --preto: #090909;
+    --preto2: #121212;
+    --preto3: #1c1c1c;
+    --dourado: #d4af37;
+    --dourado-claro: #f4d675;
+    --branco: #ffffff;
+    --cinza: #aaaaaa;
+    --verde: #38b26d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--preto);
+    color: var(--branco);
+}
+
+/* MENU */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(9,9,9,0.95);
+    border-bottom: 1px solid #292929;
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--dourado);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: white;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 20px;
+    background: radial-gradient(circle at center, #2b240d, #090909 60%);
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.va-logo {
+    font-size: 110px;
+    font-weight: bold;
+    color: var(--dourado);
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 80px);
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--dourado);
+}
+
+.hero p {
+    color: var(--cinza);
+    font-size: 19px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn {
+    border: none;
+    padding: 15px 28px;
+    border-radius: 10px;
+    background: var(--dourado);
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* SEÇÕES */
+
+section {
+    padding: 80px 25px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.titulo {
+    text-align: center;
+   
