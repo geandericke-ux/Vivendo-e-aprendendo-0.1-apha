@@ -4,370 +4,336 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vivendo e Aprendendo</title>
+<title>Vivendo e Aprendendo | Beta 0.2</title>
 
 <style>
 :root{
-    --bg:#080808;
-    --bg2:#121212;
-    --bg3:#1b1b1b;
-    --gold:#d4af37;
-    --gold-light:#f4d675;
-    --white:#ffffff;
-    --gray:#a7a7a7;
-    --green:#38b26d;
-    --red:#e85b5b;
+  --bg:#090909;
+  --bg2:#121212;
+  --bg3:#1c1c1c;
+  --gold:#d4af37;
+  --gold2:#f4d675;
+  --white:#ffffff;
+  --gray:#a8a8a8;
+  --green:#38b26d;
+  --red:#e85b5b;
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    background:var(--bg);
-    color:var(--white);
+  background:var(--bg);
+  color:var(--white);
 }
 
-/* NAVBAR */
-
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(8,8,8,.96);
-    border-bottom:1px solid #292929;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(9,9,9,.97);
+  border-bottom:1px solid #292929;
 }
 
 nav{
-    max-width:1200px;
-    margin:auto;
-    padding:17px 25px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+  max-width:1150px;
+  margin:auto;
+  padding:17px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:bold;
-    color:var(--gold);
+  font-size:22px;
+  font-weight:bold;
+  color:var(--gold);
 }
 
 .logo span{
-    color:white;
+  color:white;
 }
 
 nav button{
-    background:transparent;
-    color:white;
-    border:1px solid #444;
-    padding:9px 15px;
-    border-radius:8px;
-    cursor:pointer;
+  background:transparent;
+  color:white;
+  border:1px solid #444;
+  padding:9px 14px;
+  border-radius:8px;
+  cursor:pointer;
 }
 
-/* HERO */
-
 .hero{
-    min-height:78vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:50px 20px;
-
-    background:
-    radial-gradient(circle at center,#30270d 0%,#080808 65%);
+  min-height:78vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:50px 20px;
+  background:
+  radial-gradient(circle at center,#30270d 0%,#090909 65%);
 }
 
 .hero-content{
-    max-width:850px;
+  max-width:800px;
 }
 
 .va{
-    font-size:110px;
-    font-weight:bold;
-    color:var(--gold);
+  font-size:105px;
+  font-weight:bold;
+  color:var(--gold);
 }
 
 .hero h1{
-    font-size:clamp(42px,7vw,75px);
-    margin-bottom:15px;
+  font-size:clamp(42px,7vw,75px);
+  margin-bottom:15px;
 }
 
 .hero h1 span{
-    color:var(--gold);
+  color:var(--gold);
 }
 
 .hero p{
-    color:var(--gray);
-    font-size:18px;
-    line-height:1.7;
-    margin-bottom:30px;
+  color:var(--gray);
+  line-height:1.7;
+  font-size:18px;
+  margin-bottom:30px;
 }
 
-/* BOTÃO */
-
 .btn{
-    background:var(--gold);
-    color:#111;
-    border:none;
-    border-radius:10px;
-    padding:15px 26px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
+  background:var(--gold);
+  color:#111;
+  border:none;
+  padding:15px 25px;
+  border-radius:10px;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+  transition:.2s;
 }
 
 .btn:hover{
-    transform:scale(1.04);
-    background:var(--gold-light);
+  transform:scale(1.04);
+  background:var(--gold2);
 }
 
-/* SEÇÕES */
-
 section{
-    padding:75px 20px;
+  padding:75px 20px;
 }
 
 .container{
-    max-width:1100px;
-    margin:auto;
+  max-width:1100px;
+  margin:auto;
 }
 
 .title{
-    text-align:center;
-    margin-bottom:40px;
+  text-align:center;
+  margin-bottom:40px;
 }
 
 .title h2{
-    font-size:38px;
-    margin-bottom:10px;
+  font-size:38px;
+  margin-bottom:10px;
 }
 
 .title p{
-    color:var(--gray);
+  color:var(--gray);
 }
 
-/* CARDS */
-
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-    gap:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:18px;
 }
 
 .card{
-    background:var(--bg2);
-    border:1px solid #292929;
-    border-radius:16px;
-    padding:25px;
-    text-align:center;
-    cursor:pointer;
-    transition:.25s;
+  background:var(--bg2);
+  border:1px solid #292929;
+  padding:25px;
+  border-radius:16px;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
 }
 
 .card:hover,
 .card.active{
-    transform:translateY(-6px);
-    border-color:var(--gold);
+  transform:translateY(-6px);
+  border-color:var(--gold);
 }
 
 .icon{
-    font-size:42px;
-    margin-bottom:12px;
+  font-size:42px;
+  margin-bottom:12px;
 }
 
 .card p{
-    color:var(--gray);
-    font-size:14px;
-    margin-top:8px;
-    line-height:1.5;
+  color:var(--gray);
+  font-size:14px;
+  margin-top:8px;
 }
-
-/* ESCONDER */
 
 .hidden{
-    display:none !important;
+  display:none!important;
 }
 
-/* PAINEL DE ESTUDO */
-
 .study-panel{
-    max-width:850px;
-    margin:auto;
-    background:var(--bg2);
-    border:1px solid #303030;
-    border-radius:18px;
-    padding:32px;
+  max-width:850px;
+  margin:auto;
+  background:var(--bg2);
+  padding:32px;
+  border-radius:18px;
+  border:1px solid #303030;
 }
 
 .breadcrumb{
-    color:var(--gold);
-    margin-bottom:15px;
+  color:var(--gold);
+  margin-bottom:15px;
+  font-size:14px;
 }
 
 .study-panel h3{
-    font-size:28px;
-    margin-bottom:15px;
+  font-size:28px;
+  margin-bottom:15px;
 }
 
 .study-panel p{
-    color:#d0d0d0;
-    line-height:1.7;
+  color:#d0d0d0;
+  line-height:1.8;
 }
 
 .content-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:12px;
-    margin-top:25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:12px;
+  margin-top:25px;
 }
 
 .content-btn{
-    background:var(--bg3);
-    color:white;
-    border:1px solid #393939;
-    padding:16px;
-    border-radius:10px;
-    text-align:left;
-    cursor:pointer;
-    transition:.2s;
+  background:var(--bg3);
+  color:white;
+  border:1px solid #393939;
+  padding:16px;
+  border-radius:10px;
+  text-align:left;
+  cursor:pointer;
 }
 
 .content-btn:hover{
-    border-color:var(--gold);
+  border-color:var(--gold);
 }
 
-/* QUIZ */
-
 .quiz-box{
-    max-width:850px;
-    margin:auto;
-    background:var(--bg2);
-    border:1px solid #303030;
-    padding:32px;
-    border-radius:18px;
+  max-width:850px;
+  margin:auto;
+  background:var(--bg2);
+  border:1px solid #303030;
+  padding:32px;
+  border-radius:18px;
 }
 
 .option{
-    width:100%;
-    padding:15px;
-    margin-top:12px;
-    text-align:left;
-    background:var(--bg3);
-    border:1px solid #3a3a3a;
-    color:white;
-    border-radius:10px;
-    cursor:pointer;
+  width:100%;
+  margin-top:12px;
+  padding:15px;
+  text-align:left;
+  background:var(--bg3);
+  color:white;
+  border:1px solid #3a3a3a;
+  border-radius:10px;
+  cursor:pointer;
 }
 
 .option:hover{
-    border-color:var(--gold);
+  border-color:var(--gold);
 }
 
 .correct{
-    border-color:var(--green)!important;
-    background:#123521!important;
+  border-color:var(--green)!important;
+  background:#123521!important;
 }
 
 .wrong{
-    border-color:var(--red)!important;
-    background:#391818!important;
+  border-color:var(--red)!important;
+  background:#391818!important;
 }
 
 .feedback{
-    margin-top:20px;
-    font-weight:bold;
-    font-size:17px;
+  margin-top:20px;
+  font-weight:bold;
 }
 
-/* PROGRESSO */
-
 .progress-box{
-    max-width:700px;
-    margin:auto;
-    background:var(--bg2);
-    border-radius:18px;
-    padding:32px;
-    text-align:center;
+  max-width:700px;
+  margin:auto;
+  padding:30px;
+  background:var(--bg2);
+  border-radius:18px;
+  text-align:center;
 }
 
 .progress-track{
-    height:20px;
-    width:100%;
-    background:#292929;
-    border-radius:30px;
-    overflow:hidden;
-    margin:20px 0;
+  width:100%;
+  height:20px;
+  background:#292929;
+  border-radius:20px;
+  overflow:hidden;
+  margin:20px 0;
 }
 
 .progress-fill{
-    width:0%;
-    height:100%;
-    background:linear-gradient(
-        90deg,
-        var(--gold),
-        var(--gold-light)
-    );
-    transition:.5s;
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  transition:.5s;
 }
 
 .percent{
-    font-size:30px;
-    color:var(--gold);
-    font-weight:bold;
+  color:var(--gold);
+  font-size:30px;
+  font-weight:bold;
 }
-
-/* NOTAS */
 
 textarea{
-    width:100%;
-    min-height:200px;
-    background:var(--bg2);
-    color:white;
-    border:1px solid #333;
-    border-radius:15px;
-    padding:18px;
-    font-size:16px;
-    resize:vertical;
+  width:100%;
+  min-height:200px;
+  background:var(--bg2);
+  color:white;
+  border:1px solid #333;
+  border-radius:15px;
+  padding:18px;
+  font-size:16px;
+  resize:vertical;
 }
-
-textarea:focus{
-    outline:1px solid var(--gold);
-}
-
-/* FOOTER */
 
 footer{
-    border-top:1px solid #292929;
-    text-align:center;
-    padding:40px 20px;
-    color:var(--gray);
+  border-top:1px solid #292929;
+  text-align:center;
+  padding:40px;
+  color:var(--gray);
 }
 
 @media(max-width:600px){
 
-    nav .logo span{
-        display:none;
-    }
+  .logo span{
+    display:none;
+  }
 
-    .va{
-        font-size:80px;
-    }
+  .va{
+    font-size:80px;
+  }
 
-    .title h2{
-        font-size:31px;
-    }
-
+  .title h2{
+    font-size:30px;
+  }
 }
 </style>
 </head>
@@ -376,16 +342,14 @@ footer{
 
 <header>
 <nav>
-    <div class="logo">VA <span>| Vivendo e Aprendendo</span></div>
+<div class="logo">VA <span>| Vivendo e Aprendendo</span></div>
 
-    <button onclick="document.getElementById('progresso').scrollIntoView({behavior:'smooth'})">
-        Meu progresso
-    </button>
+<button onclick="document.getElementById('progresso').scrollIntoView({behavior:'smooth'})">
+Meu progresso
+</button>
 </nav>
 </header>
 
-
-<!-- INÍCIO -->
 
 <section class="hero">
 
@@ -396,8 +360,7 @@ footer{
 <h1>Vivendo e <span>Aprendendo</span></h1>
 
 <p>
-Uma plataforma criada para ajudar estudantes do 5º ao 9º ano
-a aprender de uma forma simples, organizada e interativa.
+Aprenda conteúdos organizados especialmente para o seu ano escolar.
 </p>
 
 <button class="btn"
@@ -406,19 +369,16 @@ Começar a estudar
 </button>
 
 </div>
-
 </section>
 
-
-<!-- SÉRIES -->
 
 <section id="series">
 
 <div class="container">
 
 <div class="title">
-<h2>Qual é sua série?</h2>
-<p>Escolha sua série para começar.</p>
+<h2>Qual é seu ano escolar?</h2>
+<p>Cada ano possui conteúdos diferentes.</p>
 </div>
 
 <div class="grid" id="seriesGrid">
@@ -426,41 +386,37 @@ Começar a estudar
 <div class="card" onclick="selecionarSerie('5º Ano',this)">
 <div class="icon">5️⃣</div>
 <h3>5º Ano</h3>
-<p>Construa uma base forte.</p>
+<p>Construindo fundamentos.</p>
 </div>
 
 <div class="card" onclick="selecionarSerie('6º Ano',this)">
 <div class="icon">6️⃣</div>
 <h3>6º Ano</h3>
-<p>Explore novos conhecimentos.</p>
+<p>Começando uma nova etapa.</p>
 </div>
 
 <div class="card" onclick="selecionarSerie('7º Ano',this)">
 <div class="icon">7️⃣</div>
 <h3>7º Ano</h3>
-<p>Desafie sua curiosidade.</p>
+<p>Aprofundando conhecimentos.</p>
 </div>
 
 <div class="card" onclick="selecionarSerie('8º Ano',this)">
 <div class="icon">8️⃣</div>
 <h3>8º Ano</h3>
-<p>Aprofunde seus estudos.</p>
+<p>Novos desafios.</p>
 </div>
 
 <div class="card" onclick="selecionarSerie('9º Ano',this)">
 <div class="icon">9️⃣</div>
 <h3>9º Ano</h3>
-<p>Prepare-se para o próximo passo.</p>
+<p>Preparação para a próxima fase.</p>
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- MATÉRIAS -->
 
 <section id="materias" class="hidden">
 
@@ -476,41 +432,37 @@ Começar a estudar
 <div class="card" onclick="selecionarMateria('Matemática')">
 <div class="icon">🔢</div>
 <h3>Matemática</h3>
-<p>Números e raciocínio lógico.</p>
+<p>Números, lógica e problemas.</p>
 </div>
 
 <div class="card" onclick="selecionarMateria('Português')">
 <div class="icon">📖</div>
 <h3>Português</h3>
-<p>Leitura e linguagem.</p>
+<p>Leitura, escrita e linguagem.</p>
 </div>
 
 <div class="card" onclick="selecionarMateria('Ciências')">
 <div class="icon">🔬</div>
 <h3>Ciências</h3>
-<p>Natureza e descobertas.</p>
+<p>Vida, universo e natureza.</p>
 </div>
 
 <div class="card" onclick="selecionarMateria('História')">
 <div class="icon">🏛️</div>
 <h3>História</h3>
-<p>Conheça o passado.</p>
+<p>Sociedades e transformações.</p>
 </div>
 
 <div class="card" onclick="selecionarMateria('Geografia')">
 <div class="icon">🌎</div>
 <h3>Geografia</h3>
-<p>Explore nosso planeta.</p>
+<p>Espaço, sociedade e planeta.</p>
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- CONTEÚDOS -->
 
 <section id="estudos" class="hidden">
 
@@ -520,9 +472,9 @@ Começar a estudar
 
 <div class="breadcrumb" id="caminho"></div>
 
-<h3 id="tituloMateria">Conteúdos</h3>
+<h3 id="tituloMateria"></h3>
 
-<p>Escolha um assunto para estudar.</p>
+<p>Escolha um conteúdo para começar.</p>
 
 <div class="content-list" id="listaConteudos"></div>
 
@@ -543,13 +495,9 @@ Fazer exercício
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- QUIZ -->
 
 <section id="quiz" class="hidden">
 
@@ -557,7 +505,6 @@ Fazer exercício
 
 <div class="title">
 <h2>Teste seus conhecimentos 🧠</h2>
-<p>Responda a pergunta sobre o conteúdo estudado.</p>
 </div>
 
 <div class="quiz-box">
@@ -569,13 +516,9 @@ Fazer exercício
 <div id="feedback" class="feedback"></div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- PROGRESSO -->
 
 <section id="progresso">
 
@@ -583,7 +526,7 @@ Fazer exercício
 
 <div class="title">
 <h2>Seu progresso</h2>
-<p>Cada atividade concluída é um passo adiante.</p>
+<p>Seu aprendizado é salvo neste dispositivo.</p>
 </div>
 
 <div class="progress-box">
@@ -601,13 +544,9 @@ Fazer exercício
 </p>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- NOTAS -->
 
 <section>
 
@@ -615,32 +554,32 @@ Fazer exercício
 
 <div class="title">
 <h2>Minhas anotações</h2>
-<p>Escreva o que você aprendeu. Tudo fica salvo neste dispositivo.</p>
+<p>Guarde aquilo que você aprendeu.</p>
 </div>
 
 <textarea id="notas"
-placeholder="Escreva aqui suas anotações..."></textarea>
+placeholder="Escreva suas anotações aqui..."></textarea>
 
 </div>
-
 </section>
 
 
 <footer>
 <p>© 2026 <strong style="color:#d4af37">Vivendo e Aprendendo</strong></p>
-<p style="margin-top:8px">Aprender é evoluir todos os dias.</p>
+<p style="margin-top:8px">Beta 0.2</p>
 </footer>
 
 
 <script>
 
-/* ===================================
-ESTADO DO ALUNO
-=================================== */
+/* =====================================
+ESTADO
+===================================== */
 
 let serieSelecionada = "";
 let materiaSelecionada = "";
 let conteudoSelecionado = null;
+let respondido = false;
 
 let progresso =
 Number(localStorage.getItem("VA_progresso")) || 0;
@@ -649,446 +588,581 @@ let atividades =
 Number(localStorage.getItem("VA_atividades")) || 0;
 
 
-/* ===================================
-BANCO DE CONTEÚDOS
-=================================== */
+/* =====================================
+BANCO DE CONTEÚDOS POR ANO
+===================================== */
 
 const banco = {
 
-"Matemática":[
+"5º Ano":{
 
+"Matemática":[
 {
 titulo:"Frações",
-texto:"Frações representam partes de um todo. O número de cima é chamado numerador e mostra quantas partes foram escolhidas. O número de baixo é chamado denominador e mostra em quantas partes o todo foi dividido.",
-pergunta:"Na fração 3/4, qual é o denominador?",
-opcoes:["3","4","7","1"],
-resposta:1
+texto:"Frações representam partes de um todo. Por exemplo, 1/2 significa uma parte de duas partes iguais.",
+pergunta:"Quanto representa 1/2?",
+opcoes:["Uma metade","Duas metades","Um terço","Quatro partes"],
+resposta:0
 },
-
 {
-titulo:"Porcentagem",
-texto:"Porcentagem representa uma quantidade dividida em cem partes. Por exemplo, 50% significa 50 em cada 100, o que corresponde à metade.",
-pergunta:"Quanto é 50% de 100?",
-opcoes:["25","50","75","100"],
-resposta:1
-},
-
-{
-titulo:"Multiplicação",
-texto:"Multiplicação é uma operação usada para representar adições repetidas. Por exemplo, 4 vezes 3 significa somar o número 3 quatro vezes.",
-pergunta:"Quanto é 7 × 8?",
-opcoes:["54","56","64","48"],
+titulo:"Números decimais",
+texto:"Os números decimais possuem uma parte inteira e uma parte decimal, como 2,5.",
+pergunta:"Qual destes é um número decimal?",
+opcoes:["25","2,5","100","8"],
 resposta:1
 }
-
 ],
 
 "Português":[
-
-{
-titulo:"Substantivos",
-texto:"Substantivos são palavras utilizadas para nomear pessoas, objetos, lugares, sentimentos e ideias.",
-pergunta:"Qual destas palavras é um substantivo?",
-opcoes:["Correr","Bonito","Escola","Rapidamente"],
-resposta:2
-},
-
 {
 titulo:"Interpretação de texto",
-texto:"Interpretar um texto significa compreender suas ideias, informações e mensagens. Para isso, é importante ler com atenção e relacionar as informações.",
-pergunta:"Qual atitude ajuda na interpretação de um texto?",
-opcoes:["Ignorar detalhes","Ler com atenção","Pular parágrafos","Decorar sem compreender"],
-resposta:1
+texto:"Interpretar um texto significa compreender suas informações e mensagens.",
+pergunta:"Para interpretar bem um texto devemos:",
+opcoes:["Ler com atenção","Ignorar o texto","Ler apenas o título","Inventar informações"],
+resposta:0
+},
+{
+titulo:"Classes de palavras",
+texto:"As palavras podem exercer diferentes funções, como substantivos, verbos e adjetivos.",
+pergunta:"Qual palavra é um substantivo?",
+opcoes:["Correr","Bonito","Escola","Rapidamente"],
+resposta:2
 }
-
 ],
 
 "Ciências":[
-
 {
 titulo:"Sistema Solar",
-texto:"O Sistema Solar é formado pelo Sol e por diversos corpos celestes que orbitam ao seu redor, incluindo planetas, luas e asteroides.",
+texto:"O Sistema Solar é formado pelo Sol e pelos corpos celestes que giram ao seu redor.",
 pergunta:"Qual é a estrela do Sistema Solar?",
-opcoes:["Terra","Lua","Sol","Marte"],
+opcoes:["Lua","Terra","Sol","Marte"],
 resposta:2
 },
-
 {
-titulo:"Estados da matéria",
-texto:"Os principais estados físicos da matéria são sólido, líquido e gasoso. Cada um possui características diferentes.",
-pergunta:"Qual estado físico possui forma própria?",
-opcoes:["Gasoso","Líquido","Sólido","Vapor"],
-resposta:2
+titulo:"Ciclo da água",
+texto:"A água circula pela natureza através de processos como evaporação, condensação e precipitação.",
+pergunta:"Qual processo transforma água líquida em vapor?",
+opcoes:["Evaporação","Congelamento","Precipitação","Condensação"],
+resposta:0
 }
-
 ],
 
 "História":[
-
 {
-titulo:"Brasil Colonial",
-texto:"O Brasil foi colonizado por Portugal. Durante o período colonial ocorreram grandes transformações sociais, econômicas e culturais.",
-pergunta:"Qual país colonizou o Brasil?",
-opcoes:["Espanha","Portugal","França","Inglaterra"],
-resposta:1
-},
-
-{
-titulo:"O estudo da História",
-texto:"A História estuda acontecimentos e transformações das sociedades humanas ao longo do tempo.",
-pergunta:"O que a História estuda?",
-opcoes:["Somente o futuro","A humanidade ao longo do tempo","Apenas animais","Somente números"],
+titulo:"Povos e culturas",
+texto:"Diferentes povos possuem costumes, tradições e formas próprias de viver.",
+pergunta:"O estudo da História ajuda a compreender:",
+opcoes:["Apenas o futuro","As sociedades ao longo do tempo","Somente números","Somente animais"],
 resposta:1
 }
-
 ],
 
 "Geografia":[
-
 {
-titulo:"Continentes",
-texto:"Os continentes são grandes extensões de terra que compõem o planeta Terra. O Brasil está localizado na América do Sul.",
-pergunta:"Em qual continente está o Brasil?",
-opcoes:["Europa","Ásia","América do Sul","África"],
+titulo:"Regiões do Brasil",
+texto:"O Brasil é dividido em cinco grandes regiões: Norte, Nordeste, Centro-Oeste, Sudeste e Sul.",
+pergunta:"Quantas regiões possui o Brasil?",
+opcoes:["3","4","5","6"],
 resposta:2
+}
+]
 },
 
+
+"6º Ano":{
+
+"Matemática":[
 {
-titulo:"Clima",
-texto:"O clima corresponde às condições atmosféricas predominantes de uma região observadas durante longos períodos.",
-pergunta:"Qual fator influencia o clima de uma região?",
-opcoes:["Latitude","Cor das casas","Nome da cidade","Quantidade de carros apenas"],
+titulo:"Números inteiros",
+texto:"Os números inteiros incluem números positivos, negativos e o zero.",
+pergunta:"Qual destes é um número negativo?",
+opcoes:["5","0","-7","12"],
+resposta:2
+},
+{
+titulo:"Divisibilidade",
+texto:"Um número é divisível por outro quando a divisão é exata e não deixa resto.",
+pergunta:"Qual número é divisível por 2?",
+opcoes:["15","21","18","25"],
+resposta:2
+}
+],
+
+"Português":[
+{
+titulo:"Gêneros textuais",
+texto:"Os textos possuem diferentes gêneros e finalidades, como notícias, poemas e histórias.",
+pergunta:"Qual é um gênero textual?",
+opcoes:["Notícia","Número","Planeta","Equação"],
 resposta:0
 }
+],
 
+"Ciências":[
+{
+titulo:"Células",
+texto:"As células são unidades fundamentais dos seres vivos.",
+pergunta:"Qual é a unidade básica dos seres vivos?",
+opcoes:["Átomo","Célula","Planeta","Rocha"],
+resposta:1
+}
+],
+
+"História":[
+{
+titulo:"Civilizações antigas",
+texto:"Diversas sociedades antigas contribuíram para o desenvolvimento da humanidade.",
+pergunta:"A História estuda principalmente:",
+opcoes:["Sociedades humanas","Apenas máquinas","Apenas plantas","Apenas números"],
+resposta:0
+}
+],
+
+"Geografia":[
+{
+titulo:"Paisagens",
+texto:"As paisagens podem ser naturais ou modificadas pela ação humana.",
+pergunta:"Uma cidade é exemplo de paisagem:",
+opcoes:["Modificada pelo ser humano","Somente natural","Sem elementos","Imaginária"],
+resposta:0
+}
 ]
+},
+
+
+"7º Ano":{
+
+"Matemática":[
+{
+titulo:"Números racionais",
+texto:"Números racionais podem ser escritos na forma de fração.",
+pergunta:"Qual pode ser representado como fração?",
+opcoes:["0,5","Somente π","Somente infinito","Nenhum"],
+resposta:0
+},
+{
+titulo:"Expressões algébricas",
+texto:"Expressões algébricas utilizam números e letras para representar relações matemáticas.",
+pergunta:"Na expressão 3x + 2, a letra x representa:",
+opcoes:["Uma variável","Um planeta","Uma frase","Uma cor"],
+resposta:0
+}
+],
+
+"Português":[
+{
+titulo:"Figuras de linguagem",
+texto:"Figuras de linguagem são recursos usados para criar efeitos de sentido.",
+pergunta:"Metáfora é uma:",
+opcoes:["Figura de linguagem","Operação matemática","Doença","Unidade de medida"],
+resposta:0
+}
+],
+
+"Ciências":[
+{
+titulo:"Ecossistemas",
+texto:"Ecossistemas envolvem seres vivos e elementos não vivos que interagem em um ambiente.",
+pergunta:"Os seres vivos interagem com:",
+opcoes:["O ambiente","Apenas máquinas","Nada","Somente números"],
+resposta:0
+}
+],
+
+"História":[
+{
+titulo:"Mundo Moderno",
+texto:"O estudo do mundo moderno envolve transformações políticas, culturais e econômicas.",
+pergunta:"A História analisa mudanças:",
+opcoes:["Ao longo do tempo","Somente hoje","Apenas no futuro","Nunca"],
+resposta:0
+}
+],
+
+"Geografia":[
+{
+titulo:"População",
+texto:"A população é formada pelo conjunto de pessoas que vivem em determinado território.",
+pergunta:"Demografia estuda principalmente:",
+opcoes:["Populações","Planetas","Equações","Células"],
+resposta:0
+}
+]
+},
+
+
+"8º Ano":{
+
+"Matemática":[
+{
+titulo:"Equações",
+texto:"Uma equação representa uma igualdade matemática que pode conter uma incógnita.",
+pergunta:"Em uma equação, x geralmente representa:",
+opcoes:["Uma incógnita","Uma cor","Um país","Um animal"],
+resposta:0
+},
+{
+titulo:"Potenciação",
+texto:"Potenciação representa multiplicações repetidas de um mesmo número.",
+pergunta:"2³ é igual a:",
+opcoes:["6","8","9","5"],
+resposta:1
+}
+],
+
+"Português":[
+{
+titulo:"Argumentação",
+texto:"Argumentar significa apresentar ideias e razões para defender um ponto de vista.",
+pergunta:"Um argumento serve para:",
+opcoes:["Defender uma ideia","Apagar textos","Resolver apenas contas","Desenhar mapas"],
+resposta:0
+}
+],
+
+"Ciências":[
+{
+titulo:"Corpo humano",
+texto:"O corpo humano possui sistemas que trabalham juntos para manter seu funcionamento.",
+pergunta:"O sistema responsável pela circulação do sangue é o:",
+opcoes:["Circulatório","Solar","Planetário","Geográfico"],
+resposta:0
+}
+],
+
+"História":[
+{
+titulo:"Revoluções",
+texto:"Revoluções provocaram grandes mudanças políticas e sociais em diferentes épocas.",
+pergunta:"Uma revolução pode provocar:",
+opcoes:["Transformações sociais","Somente mudanças climáticas","Apenas silêncio","Nenhuma mudança"],
+resposta:0
+}
+],
+
+"Geografia":[
+{
+titulo:"Globalização",
+texto:"Globalização é o aumento das conexões econômicas, culturais e tecnológicas entre diferentes lugares.",
+pergunta:"A globalização aumenta:",
+opcoes:["Conexões entre lugares","A distância entre planetas","A quantidade de luas","A idade da Terra"],
+resposta:0
+}
+]
+},
+
+
+"9º Ano":{
+
+"Matemática":[
+{
+titulo:"Equação do 2º grau",
+texto:"Uma equação do segundo grau possui geralmente uma incógnita elevada ao quadrado, como ax² + bx + c = 0.",
+pergunta:"Qual expressão representa uma equação de 2º grau?",
+opcoes:["2x + 3 = 0","x² + 5x + 6 = 0","5 + 2","10 ÷ 2"],
+resposta:1
+},
+{
+titulo:"Funções",
+texto:"Uma função estabelece uma relação entre valores de entrada e valores de saída.",
+pergunta:"Uma função relaciona:",
+opcoes:["Valores","Apenas palavras","Somente países","Apenas cores"],
+resposta:0
+}
+],
+
+"Português":[
+{
+titulo:"Argumentação e opinião",
+texto:"Textos argumentativos apresentam uma opinião acompanhada de razões e argumentos.",
+pergunta:"Uma boa argumentação precisa:",
+opcoes:["Apresentar justificativas","Apenas gritar","Não ter ideias","Ignorar informações"],
+resposta:0
+}
+],
+
+"Ciências":[
+{
+titulo:"Genética",
+texto:"A genética estuda características hereditárias e a transmissão de informações biológicas.",
+pergunta:"A genética estuda principalmente:",
+opcoes:["Herança biológica","Apenas planetas","Mapas","Números romanos"],
+resposta:0
+},
+{
+titulo:"Evolução",
+texto:"A evolução biológica explica mudanças nas populações de seres vivos ao longo de muitas gerações.",
+pergunta:"A evolução ocorre ao longo:",
+opcoes:["De gerações","De segundos apenas","De uma única respiração","De um clique"],
+resposta:0
+}
+],
+
+"História":[
+{
+titulo:"República no Brasil",
+texto:"O período republicano brasileiro envolve diversas transformações políticas e sociais após o fim do Império.",
+pergunta:"A República está relacionada à:",
+opcoes:["Organização política","Sistema Solar","Tabela periódica","Frações"],
+resposta:0
+},
+{
+titulo:"Guerras Mundiais",
+texto:"As guerras mundiais foram conflitos de grande escala que envolveram diversos países.",
+pergunta:"As guerras mundiais envolveram:",
+opcoes:["Diversos países","Apenas uma cidade","Somente uma pessoa","Nenhum território"],
+resposta:0
+}
+],
+
+"Geografia":[
+{
+titulo:"Globalização",
+texto:"A globalização conecta diferentes regiões através da economia, tecnologia, cultura e comunicação.",
+pergunta:"A globalização está ligada ao aumento das:",
+opcoes:["Conexões mundiais","Montanhas","Estações do ano","Fases da Lua"],
+resposta:0
+},
+{
+titulo:"Geopolítica",
+texto:"A geopolítica analisa relações de poder entre países e territórios.",
+pergunta:"A geopolítica envolve:",
+opcoes:["Relações entre territórios e poder","Apenas animais","Somente literatura","Frações básicas"],
+resposta:0
+}
+]
+}
 
 };
 
 
-/* ===================================
-SELECIONAR SÉRIE
-=================================== */
+/* =====================================
+SELEÇÃO DE SÉRIE
+===================================== */
 
 function selecionarSerie(serie,elemento){
 
 serieSelecionada = serie;
 
-document
-.querySelectorAll("#seriesGrid .card")
-.forEach(card => card.classList.remove("active"));
+document.querySelectorAll("#seriesGrid .card")
+.forEach(card=>card.classList.remove("active"));
 
 elemento.classList.add("active");
 
-document
-.getElementById("materias")
+document.getElementById("materias")
 .classList.remove("hidden");
 
-document
-.getElementById("textoSerie")
-.innerText =
-"Você escolheu o " + serie + ". Agora escolha uma matéria.";
+document.getElementById("textoSerie").innerText =
+"Conteúdos selecionados para o " + serie;
 
-setTimeout(() => {
-
-document
-.getElementById("materias")
-.scrollIntoView({
-behavior:"smooth"
-});
-
+setTimeout(()=>{
+document.getElementById("materias")
+.scrollIntoView({behavior:"smooth"});
 },200);
 
 }
 
 
-/* ===================================
-SELECIONAR MATÉRIA
-=================================== */
+/* =====================================
+SELEÇÃO DE MATÉRIA
+===================================== */
 
 function selecionarMateria(materia){
 
 materiaSelecionada = materia;
 
-document
-.getElementById("estudos")
+document.getElementById("estudos")
 .classList.remove("hidden");
 
-document
-.getElementById("caminho")
-.innerText =
+document.getElementById("caminho").innerText =
 serieSelecionada + " → " + materia;
 
-document
-.getElementById("tituloMateria")
-.innerText =
-"Conteúdos de " + materia;
+document.getElementById("tituloMateria").innerText =
+materia;
 
 const lista =
 document.getElementById("listaConteudos");
 
-lista.innerHTML = "";
+lista.innerHTML="";
 
-banco[materia].forEach((conteudo,index)=>{
+const conteudos =
+banco[serieSelecionada][materia];
 
-const botao =
-document.createElement("button");
+conteudos.forEach((conteudo,index)=>{
 
-botao.className =
-"content-btn";
+const botao=document.createElement("button");
 
-botao.innerText =
-"📚 " + conteudo.titulo;
+botao.className="content-btn";
 
-botao.onclick =
-() => abrirAula(index);
+botao.innerText="📚 " + conteudo.titulo;
+
+botao.onclick=()=>abrirAula(index);
 
 lista.appendChild(botao);
 
 });
 
-setTimeout(() => {
-
-document
-.getElementById("estudos")
-.scrollIntoView({
-behavior:"smooth"
-});
-
+setTimeout(()=>{
+document.getElementById("estudos")
+.scrollIntoView({behavior:"smooth"});
 },200);
 
 }
 
 
-/* ===================================
-ABRIR AULA
-=================================== */
+/* =====================================
+AULA
+===================================== */
 
 function abrirAula(index){
 
 conteudoSelecionado =
-banco[materiaSelecionada][index];
+banco[serieSelecionada]
+[materiaSelecionada][index];
 
-document
-.getElementById("aula")
+document.getElementById("aula")
 .classList.remove("hidden");
 
-document
-.getElementById("tituloAula")
-.innerText =
-conteudoSelecionado.titulo;
+document.getElementById("tituloAula")
+.innerText=conteudoSelecionado.titulo;
 
-document
-.getElementById("textoAula")
-.innerText =
-conteudoSelecionado.texto;
+document.getElementById("textoAula")
+.innerText=conteudoSelecionado.texto;
 
-document
-.getElementById("quiz")
+document.getElementById("quiz")
 .classList.add("hidden");
-
-setTimeout(() => {
-
-document
-.getElementById("aula")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-},150);
 
 }
 
 
-/* ===================================
-ABRIR QUIZ
-=================================== */
+/* =====================================
+QUIZ
+===================================== */
 
 function abrirQuiz(){
 
-if(!conteudoSelecionado){
-return;
-}
+respondido=false;
 
-document
-.getElementById("quiz")
+document.getElementById("quiz")
 .classList.remove("hidden");
 
-document
-.getElementById("perguntaQuiz")
-.innerText =
-conteudoSelecionado.pergunta;
+document.getElementById("perguntaQuiz")
+.innerText=conteudoSelecionado.pergunta;
 
-const opcoes =
+const opcoes=
 document.getElementById("opcoesQuiz");
 
-opcoes.innerHTML = "";
+opcoes.innerHTML="";
 
-document
-.getElementById("feedback")
-.innerText = "";
+document.getElementById("feedback").innerText="";
 
-conteudoSelecionado
-.opcoes
+conteudoSelecionado.opcoes
 .forEach((opcao,index)=>{
 
-const botao =
-document.createElement("button");
+const botao=document.createElement("button");
 
-botao.className =
-"option";
+botao.className="option";
 
-botao.innerText =
-opcao;
+botao.innerText=opcao;
 
-botao.onclick =
-() => responder(index);
+botao.onclick=()=>responder(index);
 
 opcoes.appendChild(botao);
 
 });
 
-setTimeout(() => {
-
-document
-.getElementById("quiz")
-.scrollIntoView({
-behavior:"smooth"
-});
-
+setTimeout(()=>{
+document.getElementById("quiz")
+.scrollIntoView({behavior:"smooth"});
 },200);
 
 }
 
 
-/* ===================================
-RESPONDER QUIZ
-=================================== */
-
-let respondido = false;
-
 function responder(index){
 
-if(respondido){
-return;
-}
+if(respondido)return;
 
-respondido = true;
+respondido=true;
 
-const botoes =
-document.querySelectorAll(".option");
+const botoes=document.querySelectorAll(".option");
 
-const feedback =
-document.getElementById("feedback");
+botoes.forEach(botao=>botao.disabled=true);
 
-botoes.forEach(botao => {
+const feedback=document.getElementById("feedback");
 
-botao.disabled = true;
+if(index===conteudoSelecionado.resposta){
 
-});
+botoes[index].classList.add("correct");
 
-if(index === conteudoSelecionado.resposta){
+feedback.innerText=
+"✅ Correto! Você ganhou 10% de progresso.";
 
-botoes[index]
-.classList.add("correct");
-
-feedback.innerText =
-"✅ Correto! Você ganhou progresso.";
-
-feedback.style.color =
-"#38b26d";
+feedback.style.color="var(--green)";
 
 adicionarProgresso();
 
 }else{
 
-botoes[index]
-.classList.add("wrong");
+botoes[index].classList.add("wrong");
 
-botoes[
-conteudoSelecionado.resposta
-]
+botoes[conteudoSelecionado.resposta]
 .classList.add("correct");
 
-feedback.innerText =
-"❌ Quase! A resposta correta foi destacada.";
+feedback.innerText=
+"❌ Não foi dessa vez! A resposta correta foi destacada.";
 
-feedback.style.color =
-"#e85b5b";
-
-}
+feedback.style.color="var(--red)";
 
 }
 
+}
 
-/* ===================================
+
+/* =====================================
 PROGRESSO
-=================================== */
+===================================== */
 
 function adicionarProgresso(){
 
-if(progresso < 100){
-
-progresso += 10;
-
-if(progresso > 100){
-progresso = 100;
-}
+progresso=Math.min(100,progresso+10);
 
 atividades++;
 
-localStorage
-.setItem(
-"VA_progresso",
-progresso
-);
-
-localStorage
-.setItem(
-"VA_atividades",
-atividades
-);
+localStorage.setItem("VA_progresso",progresso);
+localStorage.setItem("VA_atividades",atividades);
 
 atualizarProgresso();
-
-}
 
 }
 
 
 function atualizarProgresso(){
 
-document
-.getElementById("barraProgresso")
-.style.width =
-progresso + "%";
+document.getElementById("barraProgresso")
+.style.width=progresso+"%";
 
-document
-.getElementById("porcentagem")
-.innerText =
-progresso + "%";
+document.getElementById("porcentagem")
+.innerText=progresso+"%";
 
-document
-.getElementById("atividadesInfo")
-.innerText =
-atividades +
-(atividades === 1
-? " atividade concluída"
-: " atividades concluídas");
+document.getElementById("atividadesInfo")
+.innerText=
+atividades+
+(atividades===1
+?" atividade concluída"
+:" atividades concluídas");
 
 }
 
 
-/* ===================================
+/* =====================================
 NOTAS
-=================================== */
+===================================== */
 
-const notas =
-document.getElementById("notas");
+const notas=document.getElementById("notas");
 
-notas.value =
-localStorage
-.getItem("VA_notas") || "";
+notas.value=
+localStorage.getItem("VA_notas")||"";
 
 notas.addEventListener("input",()=>{
 
@@ -1100,13 +1174,9 @@ notas.value
 });
 
 
-/* ===================================
-INICIAR
-=================================== */
-
 atualizarProgresso();
 
 </script>
 
 </body>
-  </html>
+    </html>
