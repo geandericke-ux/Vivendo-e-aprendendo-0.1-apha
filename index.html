@@ -203,3 +203,401 @@
         </p>
 
         <a href="#sobre" class="botao">Conheça o
+          <script>// ==========================================
+// VIVENDO E APRENDENDO — CÉREBRO ALPHA 2.0
+// ==========================================
+
+// DADOS SALVOS
+let progresso = Number(localStorage.getItem("progressoVA")) || 0;
+let atividades = Number(localStorage.getItem("atividadesVA")) || 0;
+
+const anotacoes = document.getElementById("anotacoes");
+
+
+// ==========================================
+// INICIAR SITE
+// ==========================================
+
+window.onload = function () {
+
+    // Carregar notas
+    const notasSalvas = localStorage.getItem("notasVA");
+
+    if (notasSalvas && anotacoes) {
+        anotacoes.value = notasSalvas;
+    }
+
+    atualizarProgresso();
+};
+
+
+// ==========================================
+// SALVAR ANOTAÇÕES
+// ==========================================
+
+function salvarNotas() {
+
+    if (anotacoes) {
+        localStorage.setItem(
+            "notasVA",
+            anotacoes.value
+        );
+    }
+}
+
+
+// ==========================================
+// PROGRESSO
+// ==========================================
+
+function adicionarProgresso() {
+
+    if (progresso < 100) {
+
+        progresso += 10;
+
+        if (progresso > 100) {
+            progresso = 100;
+        }
+
+        atividades++;
+
+        localStorage.setItem("progressoVA", progresso);
+        localStorage.setItem("atividadesVA", atividades);
+
+        atualizarProgresso();
+    }
+}
+
+
+function aumentarProgresso() {
+    adicionarProgresso();
+}
+
+
+function atualizarProgresso() {
+
+    const barra = document.getElementById("barra");
+    const porcentagem = document.getElementById("porcentagem");
+
+    if (barra) {
+        barra.style.width = progresso + "%";
+    }
+
+    if (porcentagem) {
+        porcentagem.innerText = progresso + "%";
+    }
+}
+
+
+// ==========================================
+// QUIZ
+// ==========================================
+
+let quizRespondido = false;
+
+function responder(correta) {
+
+    const resultado = document.getElementById("resultado");
+
+    if (!resultado) return;
+
+    if (quizRespondido) {
+        resultado.innerHTML =
+            "⚠️ Você já respondeu essa pergunta!";
+        return;
+    }
+
+    quizRespondido = true;
+
+    if (correta) {
+
+        resultado.innerHTML =
+            "✅ Correto! Você ganhou progresso!";
+
+        resultado.style.color = "#38b26d";
+
+        adicionarProgresso();
+
+    } else {
+
+        resultado.innerHTML =
+            "❌ Quase! Errar faz parte do aprendizado. Tente aprender mais e continue.";
+
+        resultado.style.color = "#ff6b6b";
+    }
+}
+
+
+// ==========================================
+// PESQUISA
+// ==========================================
+
+function pesquisar() {
+
+    const campo = document.getElementById("pesquisa");
+
+    if (!campo) return;
+
+    const texto = campo.value.toLowerCase();
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+
+        const conteudo = card.innerText.toLowerCase();
+
+        if (conteudo.includes(texto)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+}
+
+
+// ==========================================
+// CONTEÚDOS EDUCACIONAIS
+// ==========================================
+
+const conteudos = {
+
+    "Psicologia": `
+🧠 PSICOLOGIA
+
+A psicologia estuda o comportamento e os processos mentais.
+
+Ela busca compreender como pensamos, sentimos,
+aprendemos e nos relacionamos com outras pessoas.
+
+Exemplos de temas:
+• Emoções
+• Memória
+• Comportamento
+• Personalidade
+• Aprendizagem
+`,
+
+    "História": `
+🌍 HISTÓRIA
+
+A história estuda acontecimentos do passado e ajuda
+a entender como as sociedades mudaram ao longo do tempo.
+
+Podemos estudar:
+• Civilizações antigas
+• Idade Média
+• Revoluções
+• Guerras
+• História do Brasil
+`,
+
+    "Ciência": `
+🔬 CIÊNCIA
+
+A ciência busca compreender o mundo através da
+observação, experimentação e investigação.
+
+Áreas importantes:
+• Biologia
+• Física
+• Química
+• Astronomia
+• Meio ambiente
+`,
+
+    "Tecnologia": `
+💻 TECNOLOGIA
+
+A tecnologia utiliza conhecimentos científicos para
+criar ferramentas e solucionar problemas.
+
+Exemplos:
+• Computadores
+• Inteligência Artificial
+• Programação
+• Internet
+• Robótica
+`,
+
+    "Finanças": `
+💰 FINANÇAS
+
+Educação financeira ajuda a entender melhor como
+administrar dinheiro e tomar decisões conscientes.
+
+Conceitos:
+• Economia
+• Planejamento
+• Orçamento
+• Poupança
+• Investimentos
+`,
+
+    "Comunicação": `
+🗣️ COMUNICAÇÃO
+
+Comunicação é a troca de informações entre pessoas.
+
+Podemos melhorar nossa comunicação através de:
+• Escuta ativa
+• Clareza
+• Respeito
+• Argumentação
+• Empatia
+`
+};
+
+
+// ==========================================
+// ABRIR CONTEÚDO AO CLICAR NO CARD
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+
+        card.addEventListener("click", function () {
+
+            const titulo = card.querySelector("h3");
+
+            if (!titulo) return;
+
+            const materia = titulo.innerText;
+
+            if (conteudos[materia]) {
+                mostrarConteudo(materia);
+            }
+
+        });
+
+    });
+
+});
+
+
+// ==========================================
+// MOSTRAR AULA
+// ==========================================
+
+function mostrarConteudo(materia) {
+
+    let janela = document.getElementById("janelaConteudo");
+
+    // Criar janela caso ainda não exista
+    if (!janela) {
+
+        janela = document.createElement("div");
+
+        janela.id = "janelaConteudo";
+
+        janela.style.position = "fixed";
+        janela.style.top = "0";
+        janela.style.left = "0";
+        janela.style.width = "100%";
+        janela.style.height = "100%";
+        janela.style.background = "rgba(0,0,0,0.95)";
+        janela.style.zIndex = "9999";
+        janela.style.padding = "40px";
+        janela.style.overflowY = "auto";
+
+        document.body.appendChild(janela);
+    }
+
+    janela.innerHTML = `
+
+        <div style="
+            max-width:800px;
+            margin:auto;
+            background:#121212;
+            padding:30px;
+            border-radius:15px;
+            border:1px solid #d4af37;
+        ">
+
+            <button
+                onclick="fecharConteudo()"
+                style="
+                    float:right;
+                    padding:10px 15px;
+                    cursor:pointer;
+                    background:#d4af37;
+                    border:none;
+                    border-radius:8px;
+                    font-weight:bold;
+                "
+            >
+                Fechar ✕
+            </button>
+
+            <h1 style="color:#d4af37;margin-bottom:25px;">
+                ${materia}
+            </h1>
+
+            <p style="
+                white-space:pre-line;
+                color:#ddd;
+                font-size:18px;
+                line-height:1.8;
+            ">
+                ${conteudos[materia]}
+            </p>
+
+            <br>
+
+            <button
+                onclick="concluirAula()"
+                style="
+                    padding:15px 25px;
+                    background:#d4af37;
+                    border:none;
+                    border-radius:10px;
+                    font-weight:bold;
+                    cursor:pointer;
+                "
+            >
+                ✓ Concluir aprendizado
+            </button>
+
+        </div>
+    `;
+}
+
+
+// ==========================================
+// FECHAR CONTEÚDO
+// ==========================================
+
+function fecharConteudo() {
+
+    const janela = document.getElementById("janelaConteudo");
+
+    if (janela) {
+        janela.remove();
+    }
+}
+
+
+// ==========================================
+// CONCLUIR AULA
+// ==========================================
+
+function concluirAula() {
+
+    adicionarProgresso();
+
+    alert(
+        "🎉 Parabéns! Você concluiu este conteúdo e ganhou 10% de progresso!"
+    );
+
+    fecharConteudo();
+}</script>
+        </abody>
+        </ahtml>
