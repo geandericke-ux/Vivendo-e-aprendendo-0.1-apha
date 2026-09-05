@@ -1,603 +1,1112 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Vivendo e Aprendendo</title>
+<title>Vivendo e Aprendendo</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<style>
+:root{
+    --bg:#080808;
+    --bg2:#121212;
+    --bg3:#1b1b1b;
+    --gold:#d4af37;
+    --gold-light:#f4d675;
+    --white:#ffffff;
+    --gray:#a7a7a7;
+    --green:#38b26d;
+    --red:#e85b5b;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--white);
+}
+
+/* NAVBAR */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,8,8,.96);
+    border-bottom:1px solid #292929;
+}
+
+nav{
+    max-width:1200px;
+    margin:auto;
+    padding:17px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:var(--gold);
+}
+
+.logo span{
+    color:white;
+}
+
+nav button{
+    background:transparent;
+    color:white;
+    border:1px solid #444;
+    padding:9px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:78vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:50px 20px;
+
+    background:
+    radial-gradient(circle at center,#30270d 0%,#080808 65%);
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.va{
+    font-size:110px;
+    font-weight:bold;
+    color:var(--gold);
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,75px);
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero p{
+    color:var(--gray);
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+/* BOTÃO */
+
+.btn{
+    background:var(--gold);
+    color:#111;
+    border:none;
+    border-radius:10px;
+    padding:15px 26px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:scale(1.04);
+    background:var(--gold-light);
+}
+
+/* SEÇÕES */
+
+section{
+    padding:75px 20px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.title h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:var(--gray);
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:var(--bg2);
+    border:1px solid #292929;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.card:hover,
+.card.active{
+    transform:translateY(-6px);
+    border-color:var(--gold);
+}
+
+.icon{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:var(--gray);
+    font-size:14px;
+    margin-top:8px;
+    line-height:1.5;
+}
+
+/* ESCONDER */
+
+.hidden{
+    display:none !important;
+}
+
+/* PAINEL DE ESTUDO */
+
+.study-panel{
+    max-width:850px;
+    margin:auto;
+    background:var(--bg2);
+    border:1px solid #303030;
+    border-radius:18px;
+    padding:32px;
+}
+
+.breadcrumb{
+    color:var(--gold);
+    margin-bottom:15px;
+}
+
+.study-panel h3{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.study-panel p{
+    color:#d0d0d0;
+    line-height:1.7;
+}
+
+.content-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:12px;
+    margin-top:25px;
+}
+
+.content-btn{
+    background:var(--bg3);
+    color:white;
+    border:1px solid #393939;
+    padding:16px;
+    border-radius:10px;
+    text-align:left;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.content-btn:hover{
+    border-color:var(--gold);
+}
+
+/* QUIZ */
+
+.quiz-box{
+    max-width:850px;
+    margin:auto;
+    background:var(--bg2);
+    border:1px solid #303030;
+    padding:32px;
+    border-radius:18px;
+}
+
+.option{
+    width:100%;
+    padding:15px;
+    margin-top:12px;
+    text-align:left;
+    background:var(--bg3);
+    border:1px solid #3a3a3a;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.option:hover{
+    border-color:var(--gold);
+}
+
+.correct{
+    border-color:var(--green)!important;
+    background:#123521!important;
+}
+
+.wrong{
+    border-color:var(--red)!important;
+    background:#391818!important;
+}
+
+.feedback{
+    margin-top:20px;
+    font-weight:bold;
+    font-size:17px;
+}
+
+/* PROGRESSO */
+
+.progress-box{
+    max-width:700px;
+    margin:auto;
+    background:var(--bg2);
+    border-radius:18px;
+    padding:32px;
+    text-align:center;
+}
+
+.progress-track{
+    height:20px;
+    width:100%;
+    background:#292929;
+    border-radius:30px;
+    overflow:hidden;
+    margin:20px 0;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        var(--gold),
+        var(--gold-light)
+    );
+    transition:.5s;
+}
+
+.percent{
+    font-size:30px;
+    color:var(--gold);
+    font-weight:bold;
+}
+
+/* NOTAS */
+
+textarea{
+    width:100%;
+    min-height:200px;
+    background:var(--bg2);
+    color:white;
+    border:1px solid #333;
+    border-radius:15px;
+    padding:18px;
+    font-size:16px;
+    resize:vertical;
+}
+
+textarea:focus{
+    outline:1px solid var(--gold);
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #292929;
+    text-align:center;
+    padding:40px 20px;
+    color:var(--gray);
+}
+
+@media(max-width:600px){
+
+    nav .logo span{
+        display:none;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #090909;
-      color: white;
+    .va{
+        font-size:80px;
     }
 
-    header {
-      background: #111;
-      border-bottom: 1px solid #333;
-      padding: 20px;
-      position: sticky;
-      top: 0;
+    .title h2{
+        font-size:31px;
     }
 
-    nav {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      color: #d4af37;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: white;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-    }
-
-    nav a:hover {
-      color: #d4af37;
-    }
-
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hero h1 {
-      font-size: 55px;
-      color: #d4af37;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #ccc;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-
-    .botao {
-      display: inline-block;
-      background: #d4af37;
-      color: black;
-      padding: 15px 30px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-
-    .botao:hover {
-      background: #f4d675;
-    }
-
-    .sobre {
-      background: #121212;
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .sobre h2 {
-      color: #d4af37;
-      font-size: 35px;
-      margin-bottom: 20px;
-    }
-
-    .sobre p {
-      max-width: 750px;
-      margin: auto;
-      color: #ccc;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .cards {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .cards h2 {
-      text-align: center;
-      color: #d4af37;
-      font-size: 35px;
-      margin-bottom: 40px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #151515;
-      border: 1px solid #333;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .card h3 {
-      color: #d4af37;
-      margin-bottom: 15px;
-      font-size: 22px;
-    }
-
-    .card p {
-      color: #bbb;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      border-top: 1px solid #333;
-      color: #888;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      nav a {
-        margin: 0 8px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <nav>
-      <div class="logo">VA <span>| Vivendo e Aprendendo</span></div>
+<header>
+<nav>
+    <div class="logo">VA <span>| Vivendo e Aprendendo</span></div>
 
-      <div>
-        <a href="#inicio">Início</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#conteudos">Conteúdos</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-
-    <section class="hero" id="inicio">
-      <div class="hero-content">
-        <h1>Vivendo e Aprendendo</h1>
-
-        <p>
-          Um espaço dedicado ao conhecimento, experiências e aprendizado.
-          Porque cada dia vivido é uma nova oportunidade para aprender.
-        </p>
-
-        <a href="#sobre" class="botao">Conheça o
-          <script>// ==========================================
-// VIVENDO E APRENDENDO — CÉREBRO ALPHA 2.0
-// ==========================================
-
-// DADOS SALVOS
-let progresso = Number(localStorage.getItem("progressoVA")) || 0;
-let atividades = Number(localStorage.getItem("atividadesVA")) || 0;
-
-const anotacoes = document.getElementById("anotacoes");
+    <button onclick="document.getElementById('progresso').scrollIntoView({behavior:'smooth'})">
+        Meu progresso
+    </button>
+</nav>
+</header>
 
 
-// ==========================================
-// INICIAR SITE
-// ==========================================
+<!-- INÍCIO -->
 
-window.onload = function () {
+<section class="hero">
 
-    // Carregar notas
-    const notasSalvas = localStorage.getItem("notasVA");
+<div class="hero-content">
 
-    if (notasSalvas && anotacoes) {
-        anotacoes.value = notasSalvas;
-    }
+<div class="va">VA</div>
 
-    atualizarProgresso();
+<h1>Vivendo e <span>Aprendendo</span></h1>
+
+<p>
+Uma plataforma criada para ajudar estudantes do 5º ao 9º ano
+a aprender de uma forma simples, organizada e interativa.
+</p>
+
+<button class="btn"
+onclick="document.getElementById('series').scrollIntoView({behavior:'smooth'})">
+Começar a estudar
+</button>
+
+</div>
+
+</section>
+
+
+<!-- SÉRIES -->
+
+<section id="series">
+
+<div class="container">
+
+<div class="title">
+<h2>Qual é sua série?</h2>
+<p>Escolha sua série para começar.</p>
+</div>
+
+<div class="grid" id="seriesGrid">
+
+<div class="card" onclick="selecionarSerie('5º Ano',this)">
+<div class="icon">5️⃣</div>
+<h3>5º Ano</h3>
+<p>Construa uma base forte.</p>
+</div>
+
+<div class="card" onclick="selecionarSerie('6º Ano',this)">
+<div class="icon">6️⃣</div>
+<h3>6º Ano</h3>
+<p>Explore novos conhecimentos.</p>
+</div>
+
+<div class="card" onclick="selecionarSerie('7º Ano',this)">
+<div class="icon">7️⃣</div>
+<h3>7º Ano</h3>
+<p>Desafie sua curiosidade.</p>
+</div>
+
+<div class="card" onclick="selecionarSerie('8º Ano',this)">
+<div class="icon">8️⃣</div>
+<h3>8º Ano</h3>
+<p>Aprofunde seus estudos.</p>
+</div>
+
+<div class="card" onclick="selecionarSerie('9º Ano',this)">
+<div class="icon">9️⃣</div>
+<h3>9º Ano</h3>
+<p>Prepare-se para o próximo passo.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MATÉRIAS -->
+
+<section id="materias" class="hidden">
+
+<div class="container">
+
+<div class="title">
+<h2>Escolha uma matéria</h2>
+<p id="textoSerie"></p>
+</div>
+
+<div class="grid">
+
+<div class="card" onclick="selecionarMateria('Matemática')">
+<div class="icon">🔢</div>
+<h3>Matemática</h3>
+<p>Números e raciocínio lógico.</p>
+</div>
+
+<div class="card" onclick="selecionarMateria('Português')">
+<div class="icon">📖</div>
+<h3>Português</h3>
+<p>Leitura e linguagem.</p>
+</div>
+
+<div class="card" onclick="selecionarMateria('Ciências')">
+<div class="icon">🔬</div>
+<h3>Ciências</h3>
+<p>Natureza e descobertas.</p>
+</div>
+
+<div class="card" onclick="selecionarMateria('História')">
+<div class="icon">🏛️</div>
+<h3>História</h3>
+<p>Conheça o passado.</p>
+</div>
+
+<div class="card" onclick="selecionarMateria('Geografia')">
+<div class="icon">🌎</div>
+<h3>Geografia</h3>
+<p>Explore nosso planeta.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTEÚDOS -->
+
+<section id="estudos" class="hidden">
+
+<div class="container">
+
+<div class="study-panel">
+
+<div class="breadcrumb" id="caminho"></div>
+
+<h3 id="tituloMateria">Conteúdos</h3>
+
+<p>Escolha um assunto para estudar.</p>
+
+<div class="content-list" id="listaConteudos"></div>
+
+<div id="aula" class="hidden">
+
+<hr style="margin:30px 0;border-color:#333">
+
+<h3 id="tituloAula"></h3>
+
+<p id="textoAula"></p>
+
+<br>
+
+<button class="btn" onclick="abrirQuiz()">
+Fazer exercício
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section id="quiz" class="hidden">
+
+<div class="container">
+
+<div class="title">
+<h2>Teste seus conhecimentos 🧠</h2>
+<p>Responda a pergunta sobre o conteúdo estudado.</p>
+</div>
+
+<div class="quiz-box">
+
+<h3 id="perguntaQuiz"></h3>
+
+<div id="opcoesQuiz"></div>
+
+<div id="feedback" class="feedback"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROGRESSO -->
+
+<section id="progresso">
+
+<div class="container">
+
+<div class="title">
+<h2>Seu progresso</h2>
+<p>Cada atividade concluída é um passo adiante.</p>
+</div>
+
+<div class="progress-box">
+
+<h3>Jornada de aprendizado</h3>
+
+<div class="progress-track">
+<div class="progress-fill" id="barraProgresso"></div>
+</div>
+
+<div class="percent" id="porcentagem">0%</div>
+
+<p id="atividadesInfo" style="color:#aaa;margin-top:10px">
+0 atividades concluídas
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NOTAS -->
+
+<section>
+
+<div class="container">
+
+<div class="title">
+<h2>Minhas anotações</h2>
+<p>Escreva o que você aprendeu. Tudo fica salvo neste dispositivo.</p>
+</div>
+
+<textarea id="notas"
+placeholder="Escreva aqui suas anotações..."></textarea>
+
+</div>
+
+</section>
+
+
+<footer>
+<p>© 2026 <strong style="color:#d4af37">Vivendo e Aprendendo</strong></p>
+<p style="margin-top:8px">Aprender é evoluir todos os dias.</p>
+</footer>
+
+
+<script>
+
+/* ===================================
+ESTADO DO ALUNO
+=================================== */
+
+let serieSelecionada = "";
+let materiaSelecionada = "";
+let conteudoSelecionado = null;
+
+let progresso =
+Number(localStorage.getItem("VA_progresso")) || 0;
+
+let atividades =
+Number(localStorage.getItem("VA_atividades")) || 0;
+
+
+/* ===================================
+BANCO DE CONTEÚDOS
+=================================== */
+
+const banco = {
+
+"Matemática":[
+
+{
+titulo:"Frações",
+texto:"Frações representam partes de um todo. O número de cima é chamado numerador e mostra quantas partes foram escolhidas. O número de baixo é chamado denominador e mostra em quantas partes o todo foi dividido.",
+pergunta:"Na fração 3/4, qual é o denominador?",
+opcoes:["3","4","7","1"],
+resposta:1
+},
+
+{
+titulo:"Porcentagem",
+texto:"Porcentagem representa uma quantidade dividida em cem partes. Por exemplo, 50% significa 50 em cada 100, o que corresponde à metade.",
+pergunta:"Quanto é 50% de 100?",
+opcoes:["25","50","75","100"],
+resposta:1
+},
+
+{
+titulo:"Multiplicação",
+texto:"Multiplicação é uma operação usada para representar adições repetidas. Por exemplo, 4 vezes 3 significa somar o número 3 quatro vezes.",
+pergunta:"Quanto é 7 × 8?",
+opcoes:["54","56","64","48"],
+resposta:1
+}
+
+],
+
+"Português":[
+
+{
+titulo:"Substantivos",
+texto:"Substantivos são palavras utilizadas para nomear pessoas, objetos, lugares, sentimentos e ideias.",
+pergunta:"Qual destas palavras é um substantivo?",
+opcoes:["Correr","Bonito","Escola","Rapidamente"],
+resposta:2
+},
+
+{
+titulo:"Interpretação de texto",
+texto:"Interpretar um texto significa compreender suas ideias, informações e mensagens. Para isso, é importante ler com atenção e relacionar as informações.",
+pergunta:"Qual atitude ajuda na interpretação de um texto?",
+opcoes:["Ignorar detalhes","Ler com atenção","Pular parágrafos","Decorar sem compreender"],
+resposta:1
+}
+
+],
+
+"Ciências":[
+
+{
+titulo:"Sistema Solar",
+texto:"O Sistema Solar é formado pelo Sol e por diversos corpos celestes que orbitam ao seu redor, incluindo planetas, luas e asteroides.",
+pergunta:"Qual é a estrela do Sistema Solar?",
+opcoes:["Terra","Lua","Sol","Marte"],
+resposta:2
+},
+
+{
+titulo:"Estados da matéria",
+texto:"Os principais estados físicos da matéria são sólido, líquido e gasoso. Cada um possui características diferentes.",
+pergunta:"Qual estado físico possui forma própria?",
+opcoes:["Gasoso","Líquido","Sólido","Vapor"],
+resposta:2
+}
+
+],
+
+"História":[
+
+{
+titulo:"Brasil Colonial",
+texto:"O Brasil foi colonizado por Portugal. Durante o período colonial ocorreram grandes transformações sociais, econômicas e culturais.",
+pergunta:"Qual país colonizou o Brasil?",
+opcoes:["Espanha","Portugal","França","Inglaterra"],
+resposta:1
+},
+
+{
+titulo:"O estudo da História",
+texto:"A História estuda acontecimentos e transformações das sociedades humanas ao longo do tempo.",
+pergunta:"O que a História estuda?",
+opcoes:["Somente o futuro","A humanidade ao longo do tempo","Apenas animais","Somente números"],
+resposta:1
+}
+
+],
+
+"Geografia":[
+
+{
+titulo:"Continentes",
+texto:"Os continentes são grandes extensões de terra que compõem o planeta Terra. O Brasil está localizado na América do Sul.",
+pergunta:"Em qual continente está o Brasil?",
+opcoes:["Europa","Ásia","América do Sul","África"],
+resposta:2
+},
+
+{
+titulo:"Clima",
+texto:"O clima corresponde às condições atmosféricas predominantes de uma região observadas durante longos períodos.",
+pergunta:"Qual fator influencia o clima de uma região?",
+opcoes:["Latitude","Cor das casas","Nome da cidade","Quantidade de carros apenas"],
+resposta:0
+}
+
+]
+
 };
 
 
-// ==========================================
-// SALVAR ANOTAÇÕES
-// ==========================================
+/* ===================================
+SELECIONAR SÉRIE
+=================================== */
 
-function salvarNotas() {
+function selecionarSerie(serie,elemento){
 
-    if (anotacoes) {
-        localStorage.setItem(
-            "notasVA",
-            anotacoes.value
-        );
-    }
+serieSelecionada = serie;
+
+document
+.querySelectorAll("#seriesGrid .card")
+.forEach(card => card.classList.remove("active"));
+
+elemento.classList.add("active");
+
+document
+.getElementById("materias")
+.classList.remove("hidden");
+
+document
+.getElementById("textoSerie")
+.innerText =
+"Você escolheu o " + serie + ". Agora escolha uma matéria.";
+
+setTimeout(() => {
+
+document
+.getElementById("materias")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+},200);
+
 }
 
 
-// ==========================================
-// PROGRESSO
-// ==========================================
+/* ===================================
+SELECIONAR MATÉRIA
+=================================== */
 
-function adicionarProgresso() {
+function selecionarMateria(materia){
 
-    if (progresso < 100) {
+materiaSelecionada = materia;
 
-        progresso += 10;
+document
+.getElementById("estudos")
+.classList.remove("hidden");
 
-        if (progresso > 100) {
-            progresso = 100;
-        }
+document
+.getElementById("caminho")
+.innerText =
+serieSelecionada + " → " + materia;
 
-        atividades++;
+document
+.getElementById("tituloMateria")
+.innerText =
+"Conteúdos de " + materia;
 
-        localStorage.setItem("progressoVA", progresso);
-        localStorage.setItem("atividadesVA", atividades);
+const lista =
+document.getElementById("listaConteudos");
 
-        atualizarProgresso();
-    }
+lista.innerHTML = "";
+
+banco[materia].forEach((conteudo,index)=>{
+
+const botao =
+document.createElement("button");
+
+botao.className =
+"content-btn";
+
+botao.innerText =
+"📚 " + conteudo.titulo;
+
+botao.onclick =
+() => abrirAula(index);
+
+lista.appendChild(botao);
+
+});
+
+setTimeout(() => {
+
+document
+.getElementById("estudos")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+},200);
+
 }
 
 
-function aumentarProgresso() {
-    adicionarProgresso();
+/* ===================================
+ABRIR AULA
+=================================== */
+
+function abrirAula(index){
+
+conteudoSelecionado =
+banco[materiaSelecionada][index];
+
+document
+.getElementById("aula")
+.classList.remove("hidden");
+
+document
+.getElementById("tituloAula")
+.innerText =
+conteudoSelecionado.titulo;
+
+document
+.getElementById("textoAula")
+.innerText =
+conteudoSelecionado.texto;
+
+document
+.getElementById("quiz")
+.classList.add("hidden");
+
+setTimeout(() => {
+
+document
+.getElementById("aula")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+},150);
+
 }
 
 
-function atualizarProgresso() {
+/* ===================================
+ABRIR QUIZ
+=================================== */
 
-    const barra = document.getElementById("barra");
-    const porcentagem = document.getElementById("porcentagem");
+function abrirQuiz(){
 
-    if (barra) {
-        barra.style.width = progresso + "%";
-    }
+if(!conteudoSelecionado){
+return;
+}
 
-    if (porcentagem) {
-        porcentagem.innerText = progresso + "%";
-    }
+document
+.getElementById("quiz")
+.classList.remove("hidden");
+
+document
+.getElementById("perguntaQuiz")
+.innerText =
+conteudoSelecionado.pergunta;
+
+const opcoes =
+document.getElementById("opcoesQuiz");
+
+opcoes.innerHTML = "";
+
+document
+.getElementById("feedback")
+.innerText = "";
+
+conteudoSelecionado
+.opcoes
+.forEach((opcao,index)=>{
+
+const botao =
+document.createElement("button");
+
+botao.className =
+"option";
+
+botao.innerText =
+opcao;
+
+botao.onclick =
+() => responder(index);
+
+opcoes.appendChild(botao);
+
+});
+
+setTimeout(() => {
+
+document
+.getElementById("quiz")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+},200);
+
 }
 
 
-// ==========================================
-// QUIZ
-// ==========================================
+/* ===================================
+RESPONDER QUIZ
+=================================== */
 
-let quizRespondido = false;
+let respondido = false;
 
-function responder(correta) {
+function responder(index){
 
-    const resultado = document.getElementById("resultado");
+if(respondido){
+return;
+}
 
-    if (!resultado) return;
+respondido = true;
 
-    if (quizRespondido) {
-        resultado.innerHTML =
-            "⚠️ Você já respondeu essa pergunta!";
-        return;
-    }
+const botoes =
+document.querySelectorAll(".option");
 
-    quizRespondido = true;
+const feedback =
+document.getElementById("feedback");
 
-    if (correta) {
+botoes.forEach(botao => {
 
-        resultado.innerHTML =
-            "✅ Correto! Você ganhou progresso!";
+botao.disabled = true;
 
-        resultado.style.color = "#38b26d";
+});
 
-        adicionarProgresso();
+if(index === conteudoSelecionado.resposta){
 
-    } else {
+botoes[index]
+.classList.add("correct");
 
-        resultado.innerHTML =
-            "❌ Quase! Errar faz parte do aprendizado. Tente aprender mais e continue.";
+feedback.innerText =
+"✅ Correto! Você ganhou progresso.";
 
-        resultado.style.color = "#ff6b6b";
-    }
+feedback.style.color =
+"#38b26d";
+
+adicionarProgresso();
+
+}else{
+
+botoes[index]
+.classList.add("wrong");
+
+botoes[
+conteudoSelecionado.resposta
+]
+.classList.add("correct");
+
+feedback.innerText =
+"❌ Quase! A resposta correta foi destacada.";
+
+feedback.style.color =
+"#e85b5b";
+
+}
+
 }
 
 
-// ==========================================
-// PESQUISA
-// ==========================================
+/* ===================================
+PROGRESSO
+=================================== */
 
-function pesquisar() {
+function adicionarProgresso(){
 
-    const campo = document.getElementById("pesquisa");
+if(progresso < 100){
 
-    if (!campo) return;
+progresso += 10;
 
-    const texto = campo.value.toLowerCase();
+if(progresso > 100){
+progresso = 100;
+}
 
-    const cards = document.querySelectorAll(".card");
+atividades++;
 
-    cards.forEach(function(card) {
+localStorage
+.setItem(
+"VA_progresso",
+progresso
+);
 
-        const conteudo = card.innerText.toLowerCase();
+localStorage
+.setItem(
+"VA_atividades",
+atividades
+);
 
-        if (conteudo.includes(texto)) {
+atualizarProgresso();
 
-            card.style.display = "block";
+}
 
-        } else {
-
-            card.style.display = "none";
-
-        }
-
-    });
 }
 
 
-// ==========================================
-// CONTEÚDOS EDUCACIONAIS
-// ==========================================
+function atualizarProgresso(){
 
-const conteudos = {
+document
+.getElementById("barraProgresso")
+.style.width =
+progresso + "%";
 
-    "Psicologia": `
-🧠 PSICOLOGIA
+document
+.getElementById("porcentagem")
+.innerText =
+progresso + "%";
 
-A psicologia estuda o comportamento e os processos mentais.
+document
+.getElementById("atividadesInfo")
+.innerText =
+atividades +
+(atividades === 1
+? " atividade concluída"
+: " atividades concluídas");
 
-Ela busca compreender como pensamos, sentimos,
-aprendemos e nos relacionamos com outras pessoas.
-
-Exemplos de temas:
-• Emoções
-• Memória
-• Comportamento
-• Personalidade
-• Aprendizagem
-`,
-
-    "História": `
-🌍 HISTÓRIA
-
-A história estuda acontecimentos do passado e ajuda
-a entender como as sociedades mudaram ao longo do tempo.
-
-Podemos estudar:
-• Civilizações antigas
-• Idade Média
-• Revoluções
-• Guerras
-• História do Brasil
-`,
-
-    "Ciência": `
-🔬 CIÊNCIA
-
-A ciência busca compreender o mundo através da
-observação, experimentação e investigação.
-
-Áreas importantes:
-• Biologia
-• Física
-• Química
-• Astronomia
-• Meio ambiente
-`,
-
-    "Tecnologia": `
-💻 TECNOLOGIA
-
-A tecnologia utiliza conhecimentos científicos para
-criar ferramentas e solucionar problemas.
-
-Exemplos:
-• Computadores
-• Inteligência Artificial
-• Programação
-• Internet
-• Robótica
-`,
-
-    "Finanças": `
-💰 FINANÇAS
-
-Educação financeira ajuda a entender melhor como
-administrar dinheiro e tomar decisões conscientes.
-
-Conceitos:
-• Economia
-• Planejamento
-• Orçamento
-• Poupança
-• Investimentos
-`,
-
-    "Comunicação": `
-🗣️ COMUNICAÇÃO
-
-Comunicação é a troca de informações entre pessoas.
-
-Podemos melhorar nossa comunicação através de:
-• Escuta ativa
-• Clareza
-• Respeito
-• Argumentação
-• Empatia
-`
-};
+}
 
 
-// ==========================================
-// ABRIR CONTEÚDO AO CLICAR NO CARD
-// ==========================================
+/* ===================================
+NOTAS
+=================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+const notas =
+document.getElementById("notas");
 
-    const cards = document.querySelectorAll(".card");
+notas.value =
+localStorage
+.getItem("VA_notas") || "";
 
-    cards.forEach(function(card) {
+notas.addEventListener("input",()=>{
 
-        card.addEventListener("click", function () {
-
-            const titulo = card.querySelector("h3");
-
-            if (!titulo) return;
-
-            const materia = titulo.innerText;
-
-            if (conteudos[materia]) {
-                mostrarConteudo(materia);
-            }
-
-        });
-
-    });
+localStorage.setItem(
+"VA_notas",
+notas.value
+);
 
 });
 
 
-// ==========================================
-// MOSTRAR AULA
-// ==========================================
+/* ===================================
+INICIAR
+=================================== */
 
-function mostrarConteudo(materia) {
+atualizarProgresso();
 
-    let janela = document.getElementById("janelaConteudo");
+</script>
 
-    // Criar janela caso ainda não exista
-    if (!janela) {
-
-        janela = document.createElement("div");
-
-        janela.id = "janelaConteudo";
-
-        janela.style.position = "fixed";
-        janela.style.top = "0";
-        janela.style.left = "0";
-        janela.style.width = "100%";
-        janela.style.height = "100%";
-        janela.style.background = "rgba(0,0,0,0.95)";
-        janela.style.zIndex = "9999";
-        janela.style.padding = "40px";
-        janela.style.overflowY = "auto";
-
-        document.body.appendChild(janela);
-    }
-
-    janela.innerHTML = `
-
-        <div style="
-            max-width:800px;
-            margin:auto;
-            background:#121212;
-            padding:30px;
-            border-radius:15px;
-            border:1px solid #d4af37;
-        ">
-
-            <button
-                onclick="fecharConteudo()"
-                style="
-                    float:right;
-                    padding:10px 15px;
-                    cursor:pointer;
-                    background:#d4af37;
-                    border:none;
-                    border-radius:8px;
-                    font-weight:bold;
-                "
-            >
-                Fechar ✕
-            </button>
-
-            <h1 style="color:#d4af37;margin-bottom:25px;">
-                ${materia}
-            </h1>
-
-            <p style="
-                white-space:pre-line;
-                color:#ddd;
-                font-size:18px;
-                line-height:1.8;
-            ">
-                ${conteudos[materia]}
-            </p>
-
-            <br>
-
-            <button
-                onclick="concluirAula()"
-                style="
-                    padding:15px 25px;
-                    background:#d4af37;
-                    border:none;
-                    border-radius:10px;
-                    font-weight:bold;
-                    cursor:pointer;
-                "
-            >
-                ✓ Concluir aprendizado
-            </button>
-
-        </div>
-    `;
-}
-
-
-// ==========================================
-// FECHAR CONTEÚDO
-// ==========================================
-
-function fecharConteudo() {
-
-    const janela = document.getElementById("janelaConteudo");
-
-    if (janela) {
-        janela.remove();
-    }
-}
-
-
-// ==========================================
-// CONCLUIR AULA
-// ==========================================
-
-function concluirAula() {
-
-    adicionarProgresso();
-
-    alert(
-        "🎉 Parabéns! Você concluiu este conteúdo e ganhou 10% de progresso!"
-    );
-
-    fecharConteudo();
-}</script>
-        </abody>
-        </ahtml>
+</body>
+  </html>
