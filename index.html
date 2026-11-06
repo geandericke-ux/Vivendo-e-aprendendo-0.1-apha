@@ -2,3521 +2,530 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Vivendo e Aprendendo</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Vivendo e Aprendendo | Beta 0.4</title>
 <style>
-:root{
- --bg:#080808;
- --bg2:#111111;
- --bg3:#1a1a1a;
- --bg4:#252525;
- --gold:#d4af37;
- --gold2:#f4d675;
- --white:#ffffff;
- --gray:#aaaaaa;
- --green:#38b26d;
- --red:#e85b5b;
- --blue:#4b8cff;
-}
-
-*{
- margin:0;
- padding:0;
- box-sizing:border-box;
- font-family:Arial,Helvetica,sans-serif;
-}
-
-html{
- scroll-behavior:smooth;
-}
-
-body{
- background:var(--bg);
- color:var(--white);
- min-height:100vh;
-}
-
-/* HEADER */
-
-header{
- position:sticky;
- top:0;
- z-index:100;
- background:rgba(8,8,8,.97);
- border-bottom:1px solid #292929;
- backdrop-filter:blur(10px);
-}
-
-nav{
- max-width:1200px;
- margin:auto;
- padding:15px 20px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:15px;
-}
-
-.logo{
- color:var(--gold);
- font-weight:bold;
- font-size:22px;
-}
-
-.logo span{
- color:white;
-}
-
-.nav-area{
- display:flex;
- gap:8px;
- flex-wrap:wrap;
-}
-
-.nav-btn{
- background:transparent;
- color:white;
- border:1px solid #444;
- padding:9px 13px;
- border-radius:9px;
- cursor:pointer;
- transition:.2s;
-}
-
-.nav-btn:hover{
- border-color:var(--gold);
- color:var(--gold);
-}
-
-/* HERO */
-
-.hero{
- min-height:82vh;
- display:flex;
- align-items:center;
- justify-content:center;
- text-align:center;
- padding:50px 20px;
- background:
- radial-gradient(circle at center,#30270d 0%,#080808 65%);
-}
-
-.va{
- font-size:clamp(90px,16vw,170px);
- font-weight:bold;
- color:var(--gold);
- text-shadow:0 0 40px rgba(212,175,55,.25);
-}
-
-.hero h1{
- font-size:clamp(42px,8vw,80px);
- margin:5px 0;
-}
-
-.hero h1 span{
- color:var(--gold);
-}
-
-.subtitle{
- color:var(--gray);
- line-height:1.7;
- max-width:750px;
- margin:15px auto 25px;
-}
-
-/* BOTÕES */
-
-.btn{
- border:none;
- background:var(--gold);
- color:#111;
- padding:14px 23px;
- border-radius:10px;
- cursor:pointer;
- font-weight:bold;
- font-size:16px;
- transition:.2s;
-}
-
-.btn:hover{
- background:var(--gold2);
- transform:translateY(-2px);
-}
-
-.btn-secondary{
- background:transparent;
- color:white;
- border:1px solid #444;
- padding:12px 18px;
- border-radius:9px;
- cursor:pointer;
- transition:.2s;
-}
-
-.btn-secondary:hover{
- border-color:var(--gold);
-}
-
-/* SEÇÕES */
-
-section{
- padding:75px 20px;
-}
-
-.container{
- max-width:1200px;
- margin:auto;
-}
-
-.title{
- text-align:center;
- margin-bottom:40px;
-}
-
-.title h2{
- font-size:clamp(30px,5vw,42px);
- margin-bottom:10px;
-}
-
-/* GRID */
-
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
- gap:17px;
-}
-
-.card{
- background:var(--bg2);
- border:1px solid #2c2c2c;
- padding:24px;
- border-radius:16px;
- text-align:center;
- cursor:pointer;
- transition:.25s;
-}
-
-.card:hover{
- transform:translateY(-6px);
- border-color:var(--gold);
- box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-.card.selected{
- border-color:var(--gold);
-}
-
-.icon{
- font-size:40px;
- margin-bottom:12px;
-}
-
-.card p{
- color:var(--gray);
- margin-top:8px;
- font-size:14px;
-}
-
-/* BOX */
-
-.box{
- background:var(--bg2);
- border:1px solid #303030;
- border-radius:18px;
- padding:28px;
- max-width:1000px;
- margin:auto;
-}
-
-.hidden{
- display:none!important;
-}
-
-/* PESQUISA */
-
-.search-box{
- display:flex;
- gap:10px;
- flex-wrap:wrap;
-}
-
-.search{
- flex:1;
- min-width:220px;
- padding:16px;
- background:var(--bg3);
- border:1px solid #444;
- color:white;
- border-radius:10px;
- font-size:16px;
- outline:none;
-}
-
-.search:focus{
- border-color:var(--gold);
-}
-
-.lesson{
- margin-top:20px;
- padding:25px;
- background:var(--bg3);
- border-radius:13px;
- line-height:1.8;
-}
-
-.lesson h3{
- color:var(--gold);
- font-size:24px;
- margin-bottom:12px;
-}
-
-.example{
- background:#252525;
- border-left:4px solid var(--gold);
- padding:15px;
- margin:15px 0;
- border-radius:8px;
-}
-
-/* QUIZ */
-
-.quiz-top{
- display:flex;
- justify-content:space-between;
- align-items:center;
- flex-wrap:wrap;
- gap:10px;
- color:var(--gold);
- margin-bottom:25px;
-}
-
-.question{
- font-size:22px;
- line-height:1.6;
- margin-bottom:20px;
-}
-
-.option{
- width:100%;
- display:block;
- text-align:left;
- padding:15px;
- margin:10px 0;
- background:var(--bg3);
- color:white;
- border:1px solid #3b3b3b;
- border-radius:10px;
- cursor:pointer;
- font-size:16px;
- transition:.2s;
-}
-
-.option:hover:not(:disabled){
- border-color:var(--gold);
- transform:translateX(3px);
-}
-
-.option:disabled{
- cursor:default;
-}
-
-.correct{
- background:#123521!important;
- border-color:var(--green)!important;
-}
-
-.wrong{
- background:#3b1818!important;
- border-color:var(--red)!important;
-}
-
-.feedback{
- margin-top:20px;
- line-height:1.7;
-}
-
-/* PROGRESSO */
-
-.progress-track{
- height:22px;
- background:#292929;
- border-radius:30px;
- overflow:hidden;
- margin:20px 0;
-}
-
-.progress-fill{
- height:100%;
- width:0%;
- background:linear-gradient(90deg,var(--gold),var(--gold2));
- transition:.5s;
-}
-
-.stats{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:12px;
-}
-
-.stat{
- background:var(--bg3);
- padding:18px;
- border-radius:12px;
- text-align:center;
-}
-
-.stat b{
- display:block;
- font-size:27px;
- color:var(--gold);
- margin-bottom:5px;
-}
-
-/* MODO LIVRO */
-
-.book-layout{
- display:grid;
- grid-template-columns:280px 1fr;
- gap:20px;
-}
-
-.book-sidebar{
- background:var(--bg2);
- border:1px solid #303030;
- border-radius:15px;
- padding:15px;
- height:max-content;
-}
-
-.chapter{
- padding:13px;
- border-radius:9px;
- margin-bottom:7px;
- cursor:pointer;
- color:#ccc;
- transition:.2s;
-}
-
-.chapter:hover{
- background:var(--bg3);
- color:var(--gold);
-}
-
-.chapter.active{
- background:#29230e;
- color:var(--gold);
- border-left:3px solid var(--gold);
-}
-
-.book-content{
- background:var(--bg2);
- border:1px solid #303030;
- border-radius:15px;
- padding:35px;
- line-height:1.85;
-}
-
-.book-content h2{
- color:var(--gold);
- margin-bottom:18px;
-}
-
-.book-content h3{
- margin-top:25px;
- color:var(--gold2);
-}
-
-.tip{
- background:#1d1d1d;
- border-left:4px solid var(--blue);
- padding:15px;
- margin:18px 0;
- border-radius:8px;
-}
-
-.exercise{
- background:#252525;
- padding:18px;
- border-radius:10px;
- margin-top:20px;
-}
-
-/* BADGES */
-
-.badge{
- display:inline-block;
- background:#25210e;
- color:var(--gold);
- padding:6px 11px;
- border-radius:20px;
- font-size:13px;
- margin-bottom:12px;
-}
-
-/* VOLTAR */
-
-.back{
- margin-bottom:20px;
- background:transparent;
- color:white;
- border:1px solid #444;
- padding:10px 14px;
- border-radius:8px;
- cursor:pointer;
-}
-
-.back:hover{
- border-color:var(--gold);
-}
-
-/* FOOTER */
-
-footer{
- border-top:1px solid #292929;
- text-align:center;
- padding:35px 20px;
- color:var(--gray);
-}
-
-/* MOBILE */
-
-@media(max-width:800px){
-
- .book-layout{
-  grid-template-columns:1fr;
- }
-
- .stats{
-  grid-template-columns:repeat(2,1fr);
- }
-
- .book-content{
-  padding:22px;
- }
-
- nav{
-  flex-direction:column;
- }
-
-}
-
-@media(max-width:500px){
-
- .logo span{
-  display:none;
- }
-
- .question{
-  font-size:19px;
- }
-
- .hero{
-  min-height:75vh;
- }
-
+:root{--bg:#090909;--card:#121212;--card2:#1b1b1b;--gold:#d4af37;--gold2:#f4d675;--text:#fff;--muted:#aaa;--green:#38b26d;--red:#e85b5b}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text)}
+header{position:sticky;top:0;z-index:10;background:#090909ee;border-bottom:1px solid #292929}
+nav{max-width:1100px;margin:auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:800;color:var(--gold)}
+.logo span{color:#fff}
+nav button,.smallbtn{background:transparent;color:#fff;border:1px solid #444;padding:9px 13px;border-radius:9px;cursor:pointer}
+.hero{min-height:72vh;display:grid;place-items:center;text-align:center;padding:50px 20px;background:radial-gradient(circle,#30270d 0,#090909 65%)}
+.va{font-size:105px;font-weight:900;color:var(--gold)}
+h1{font-size:clamp(42px,8vw,78px);margin:10px 0}
+h1 span{color:var(--gold)}
+.hero p,.subtitle{color:var(--muted);line-height:1.6;max-width:720px;margin:0 auto 25px}
+.btn{background:var(--gold);color:#111;border:0;border-radius:10px;padding:15px 24px;font-weight:bold;font-size:16px;cursor:pointer}
+.btn:hover{background:var(--gold2)}
+section{padding:70px 20px}
+.container{max-width:1100px;margin:auto}
+.title{text-align:center;margin-bottom:35px}
+.title h2{font-size:36px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid #292929;border-radius:16px;padding:24px;cursor:pointer;transition:.2s;text-align:center}
+.card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.icon{font-size:38px;margin-bottom:10px}
+.card p{color:var(--muted);font-size:14px;margin-top:8px}
+.learnbox,.quizbox,.progressbox{max-width:850px;margin:auto;background:var(--card);border:1px solid #303030;border-radius:18px;padding:28px}
+.searchrow{display:flex;gap:10px}
+.searchrow input{flex:1;background:#1b1b1b;color:white;border:1px solid #444;border-radius:10px;padding:16px;font-size:16px}
+.lesson{margin-top:22px;background:#171717;border-radius:14px;padding:22px;line-height:1.75}
+.lesson h3{color:var(--gold);margin-bottom:12px}
+.lesson .example{background:#202020;padding:14px;border-radius:10px;margin:12px 0}
+.hidden{display:none!important}
+.quiztop{display:flex;justify-content:space-between;color:var(--gold);margin-bottom:18px}
+.question{font-size:22px;line-height:1.45;margin-bottom:18px}
+.option{width:100%;text-align:left;margin:10px 0;padding:15px;background:var(--card2);border:1px solid #393939;color:white;border-radius:10px;cursor:pointer;font-size:16px}
+.option:hover{border-color:var(--gold)}
+.option:disabled{cursor:default;opacity:1}
+.correct{border-color:var(--green)!important;background:#123521!important}
+.wrong{border-color:var(--red)!important;background:#391818!important}
+.feedback{margin-top:15px;font-weight:bold;line-height:1.5}
+.track{height:20px;background:#292929;border-radius:20px;overflow:hidden;margin:18px 0}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:.4s}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center}
+.stat{background:#191919;border-radius:12px;padding:15px}
+.stat b{display:block;color:var(--gold);font-size:24px}
+.note{color:var(--muted);font-size:13px;margin-top:15px}
+@media(max-width:600px){
+ .logo span{display:none}
+ .va{font-size:80px}
+ .searchrow{flex-direction:column}
+ .stats{grid-template-columns:1fr}
+ .title h2{font-size:29px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
 <nav>
-
-<div class="logo">
-VA <span>| Vivendo e Aprendendo</span>
-</div>
-
-<div class="nav-area">
-<button class="nav-btn" onclick="irPara('anos')">Anos</button>
-<button class="nav-btn" onclick="irPara('aprender')">🔍 Pesquisar</button>
-<button class="nav-btn" onclick="irPara('progresso')">📊 Progresso</button>
-</div>
-
+<div class="logo">VA <span>| Vivendo e Aprendendo</span></div>
+<button onclick="document.getElementById('progresso').scrollIntoView({behavior:'smooth'})">Meu progresso</button>
 </nav>
 </header>
 
-
-<!-- HERO -->
-
 <section class="hero">
-
 <div>
-
 <div class="va">VA</div>
-
-<h1>
-Vivendo e <span>Aprendendo</span>
-</h1>
-
-<p class="subtitle">
-Uma plataforma educacional criada para ajudar estudantes a aprender,
-revisar conteúdos, explorar explicações completas e testar seus conhecimentos.
-</p>
-
-<button class="btn" onclick="irPara('anos')">
-Começar a aprender
-</button>
-
+<h1>Vivendo e <span>Aprendendo</span></h1>
+<p>Aprenda um assunto do seu jeito ou enfrente um desafio adaptativo com questões de dificuldade progressiva.</p>
+<button class="btn" onclick="document.getElementById('aprender').scrollIntoView({behavior:'smooth'})">Começar</button>
 </div>
-
 </section>
-
-
-<!-- ANOS -->
-
-<section id="anos">
-
-<div class="container">
-
-<div class="title">
-
-<h2>🎓 Escolha seu ano escolar</h2>
-
-<p class="subtitle">
-Cada etapa possui conteúdos organizados progressivamente.
-</p>
-
-</div>
-
-<div class="grid">
-
-<div class="card" onclick="selecionarAno('5º ano')">
-<div class="icon">🟢</div>
-<h3>5º Ano</h3>
-<p>Fundamentos e consolidação</p>
-</div>
-
-<div class="card" onclick="selecionarAno('6º ano')">
-<div class="icon">🔵</div>
-<h3>6º Ano</h3>
-<p>Novos conceitos</p>
-</div>
-
-<div class="card" onclick="selecionarAno('7º ano')">
-<div class="icon">🟣</div>
-<h3>7º Ano</h3>
-<p>Desenvolvimento</p>
-</div>
-
-<div class="card" onclick="selecionarAno('8º ano')">
-<div class="icon">🟠</div>
-<h3>8º Ano</h3>
-<p>Aprofundamento</p>
-</div>
-
-<div class="card" onclick="selecionarAno('9º ano')">
-<div class="icon">🔴</div>
-<h3>9º Ano</h3>
-<p>Preparação final</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- MATÉRIAS -->
-
-<section id="materias" class="hidden">
-
-<div class="container">
-
-<button class="back" onclick="irPara('anos')">
-← Voltar
-</button>
-
-<div class="title">
-
-<h2 id="tituloAno">
-Matérias
-</h2>
-
-<p class="subtitle">
-Escolha como deseja estudar.
-</p>
-
-</div>
-
-
-<div class="grid">
-
-<div class="card" onclick="escolherMateria('Português')">
-<div class="icon">📖</div>
-<h3>Português</h3>
-<p>Gramática, leitura e interpretação</p>
-</div>
-
-<div class="card" onclick="escolherMateria('Matemática')">
-<div class="icon">🔢</div>
-<h3>Matemática</h3>
-<p>Números, problemas e raciocínio</p>
-</div>
-
-<div class="card" onclick="escolherMateria('Ciências')">
-<div class="icon">🔬</div>
-<h3>Ciências</h3>
-<p>Vida, matéria e universo</p>
-</div>
-
-<div class="card" onclick="escolherMateria('História')">
-<div class="icon">🏛️</div>
-<h3>História</h3>
-<p>Sociedades e transformações</p>
-</div>
-
-<div class="card" onclick="escolherMateria('Geografia')">
-<div class="icon">🌎</div>
-<h3>Geografia</h3>
-<p>Espaço, população e sociedade</p>
-</div>
-
-</div>
-
-
-<div id="escolhaModo" class="box hidden" style="margin-top:30px">
-
-<div class="title">
-
-<h2 id="tituloMateria"></h2>
-
-<p class="subtitle">
-Escolha uma forma de aprender.
-</p>
-
-</div>
-
-<div class="grid">
-
-<div class="card" onclick="abrirQuiz()">
-
-<div class="icon">🔥</div>
-
-<h3>Modo Desafio</h3>
-
-<p>
-Responda perguntas e aumente sua dificuldade.
-</p>
-
-</div>
-
-
-<div class="card" onclick="abrirLivro()">
-
-<div class="icon">📚</div>
-
-<h3>Modo Livro</h3>
-
-<p>
-Estude capítulos completos com explicações e exemplos.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PESQUISA -->
 
 <section id="aprender">
-
 <div class="container">
-
 <div class="title">
-
-<h2>🔍 Pesquise o que deseja aprender</h2>
-
-<p class="subtitle">
-Digite um conteúdo como: divisão de frações, adjetivos,
-fotossíntese, porcentagem, equações ou Sistema Solar.
-</p>
-
+<h2>🧠 O que você quer aprender?</h2>
+<p class="subtitle">Digite um assunto. Exemplo: adjetivo, frações, equação do 2º grau ou sistema solar.</p>
 </div>
-
-<div class="box">
-
-<div class="search-box">
-
-<input
-id="busca"
-class="search"
-placeholder="Exemplo: explicação de divisão de frações"
->
-
-<button class="btn" onclick="pesquisar()">
-🔍 Pesquisar
-</button>
-
+<div class="learnbox">
+<div class="searchrow">
+<input id="busca" placeholder="Ex.: Quero aprender adjetivo">
+<button class="btn" onclick="ensinar()">Ensinar</button>
 </div>
-
-<div id="resultadoPesquisa" class="lesson hidden"></div>
-
+<div id="sugestoes" class="note">Sugestões: Adjetivo • Frações • Equação do 2º grau • Sistema Solar</div>
+<div id="aula" class="lesson hidden"></div>
 </div>
-
 </div>
-
 </section>
 
-
-<!-- QUIZ -->
-
-<section id="quizArea" class="hidden">
-
+<section id="desafio">
 <div class="container">
-
-<button class="back" onclick="irPara('materias')">
-← Voltar
-</button>
-
 <div class="title">
-
-<h2>🔥 Modo Desafio</h2>
-
-<p class="subtitle">
-Quanto melhor você responde, mais difíceis ficam as perguntas.
-</p>
-
+<h2>🔥 Modo Desafio Adaptativo</h2>
+<p class="subtitle">Começa fácil. Cada acerto aumenta a dificuldade; erros podem reduzi-la.</p>
 </div>
 
-<div class="box">
-
-<div class="quiz-top">
-
-<span id="quizTitulo"></span>
-
-<span>
-Dificuldade:
-<b id="nivel">1</b>/5
-</span>
-
+<div id="startQuiz" class="quizbox" style="text-align:center">
+<h3 style="margin-bottom:12px">Banco inicial: <span id="totalQ"></span> questões</h3>
+<p class="subtitle">Escolha uma área para começar.</p>
+<div class="grid">
+<div class="card" onclick="iniciar('Português')"><div class="icon">📖</div><h3>Português</h3><p>Interpretação, gramática e análise textual</p></div>
+<div class="card" onclick="iniciar('Matemática')"><div class="icon">🔢</div><h3>Matemática</h3><p>Problemas, porcentagem e raciocínio</p></div>
+<div class="card" onclick="iniciar('Ciências')"><div class="icon">🔬</div><h3>Ciências</h3><p>Ecologia, física, química e biologia</p></div>
+<div class="card" onclick="iniciar('História')"><div class="icon">🏛️</div><h3>História</h3><p>Sociedades e tempo</p></div>
+<div class="card" onclick="iniciar('Geografia')"><div class="icon">🌎</div><h3>Geografia</h3><p>Brasil e mundo</p></div>
+</div>
 </div>
 
-
+<div id="quizbox" class="quizbox hidden">
+<div class="quiztop">
+<span id="area"></span>
+<span>Dificuldade: <b id="nivel">1</b>/5</span>
+</div>
 <div class="question" id="pergunta"></div>
-
 <div id="opcoes"></div>
-
-<div id="feedback" class="feedback"></div>
-
-<button
-id="proxima"
-class="btn hidden"
-style="margin-top:20px"
-onclick="proximaPergunta()"
->
-Próxima pergunta →
-</button>
-
+<div class="feedback" id="feedback"></div>
+<button id="proxima" class="btn hidden" style="margin-top:18px" onclick="proxima()">Próxima pergunta →</button>
 </div>
-
 </div>
-
 </section>
-
-
-<!-- MODO LIVRO -->
-
-<section id="livroArea" class="hidden">
-
-<div class="container">
-
-<button class="back" onclick="irPara('materias')">
-← Voltar às matérias
-</button>
-
-<div class="title">
-
-<h2 id="livroTitulo">
-📚 Modo Livro
-</h2>
-
-<p class="subtitle">
-Estude o conteúdo por capítulos.
-</p>
-
-</div>
-
-
-<div class="book-layout">
-
-<div class="book-sidebar">
-
-<h3 style="color:#d4af37;margin-bottom:15px">
-📑 Capítulos
-</h3>
-
-<div id="listaCapitulos"></div>
-
-</div>
-
-
-<div id="conteudoLivro" class="book-content">
-
-<h2>Selecione um capítulo</h2>
-
-<p>
-Escolha um capítulo ao lado para começar seus estudos.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PROGRESSO -->
 
 <section id="progresso">
-
 <div class="container">
-
 <div class="title">
-
 <h2>📊 Seu progresso</h2>
-
-<p class="subtitle">
-Acompanhe seu desempenho.
-</p>
-
+<p class="subtitle">Salvo neste dispositivo.</p>
 </div>
-
-<div class="box">
-
-<div class="progress-track">
-
-<div id="barra" class="progress-fill"></div>
-
-</div>
-
+<div class="progressbox">
+<div class="track"><div class="fill" id="fill"></div></div>
 <div class="stats">
-
-<div class="stat">
-<b id="respondidas">0</b>
-Respondidas
+<div class="stat"><b id="respondidas">0</b>Respondidas</div>
+<div class="stat"><b id="acertos">0</b>Acertos</div>
+<div class="stat"><b id="porcentagem">0%</b>Precisão</div>
 </div>
-
-<div class="stat">
-<b id="acertos">0</b>
-Acertos
 </div>
-
-<div class="stat">
-<b id="erros">0</b>
-Erros
 </div>
-
-<div class="stat">
-<b id="precisao">0%</b>
-Precisão
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-
-<footer>
-
-<p>
-© 2026
-<strong style="color:#d4af37">
-Vivendo e Aprendendo
-</strong>
-</p>
-
-<p style="margin-top:8px">
-Aprender é uma das formas mais poderosas de evoluir.
-</p>
-
+<footer style="text-align:center;padding:35px;border-top:1px solid #292929;color:#aaa">
+© 2026 <b style="color:#d4af37">Vivendo e Aprendendo</b> — Beta 0.4
 </footer>
 
-
 <script>
-
-/* =====================================================
-   ESTADO DO SISTEMA
-===================================================== */
-
-let anoAtual = "";
-let materiaAtual = "";
-let nivelAtual = 1;
-let perguntaAtual = null;
-let respondeu = false;
-let perguntasUsadas = [];
-
-
-/* =====================================================
-   NAVEGAÇÃO
-===================================================== */
-
-function irPara(id){
-
- const elemento = document.getElementById(id);
-
- elemento.classList.remove("hidden");
-
- elemento.scrollIntoView({
-  behavior:"smooth",
-  block:"start"
- });
-
-}
-
-
-/* =====================================================
-   SELEÇÃO DE ANO
-===================================================== */
-
-function selecionarAno(ano){
-
- anoAtual = ano;
-
- document
- .getElementById("materias")
- .classList
- .remove("hidden");
-
- document.getElementById("tituloAno").innerText =
- "📚 " + ano + " — Escolha uma matéria";
-
- document
- .getElementById("escolhaModo")
- .classList
- .add("hidden");
-
- setTimeout(()=>{
-  irPara("materias");
- },100);
-
-}
-
-
-/* =====================================================
-   SELEÇÃO DE MATÉRIA
-===================================================== */
-
-function escolherMateria(materia){
-
- materiaAtual = materia;
-
- document.getElementById("tituloMateria").innerText =
- anoAtual + " • " + materia;
-
- document
- .getElementById("escolhaModo")
- .classList
- .remove("hidden");
-
- document
- .getElementById("escolhaModo")
- .scrollIntoView({
-  behavior:"smooth",
-  block:"center"
- });
-
-}
-
-
-/* =====================================================
-   SISTEMA DE PESQUISA EDUCACIONAL
-===================================================== */
-
-const bibliotecaPesquisa = [
-
-{
- chaves:["adjetivo","adjetivos"],
- titulo:"Adjetivos",
- conteudo:`
-<h3>📖 O que são adjetivos?</h3>
-
-<p>
-Adjetivos são palavras que dão características aos substantivos.
-Eles podem indicar qualidade, estado, aparência ou outras características.
-</p>
-
-<div class="example">
-<b>Exemplo:</b><br>
-Casa grande.<br>
-Cachorro rápido.<br>
-Menina inteligente.
-</div>
-
-<h3>Como identificar?</h3>
-
-<p>
-Observe o substantivo e pergunte:
-<b>Como ele é?</b>
-A resposta provavelmente será um adjetivo.
-</p>
-
-<div class="tip">
-💡 Exemplo: Como é o carro? <b>Vermelho.</b>
-Portanto, vermelho funciona como adjetivo.
-</div>
-`
-},
-
-{
- chaves:["fracao","frações","fracao","divisao de fracao","divisão de fração"],
- titulo:"Frações e divisão de frações",
- conteudo:`
-<h3>🔢 O que é uma fração?</h3>
-
-<p>
-Uma fração representa partes de uma quantidade dividida em partes iguais.
-</p>
-
-<div class="example">
-1/2 = uma de duas partes.<br>
-3/4 = três de quatro partes.
-</div>
-
-<h3>➗ Como dividir frações?</h3>
-
-<p>
-Na divisão de frações, multiplicamos a primeira fração pelo inverso da segunda.
-</p>
-
-<div class="example">
-<b>Exemplo:</b><br><br>
-1/2 ÷ 3/4<br><br>
-Mantém a primeira: 1/2<br>
-Inverte a segunda: 4/3<br><br>
-1/2 × 4/3 = 4/6 = <b>2/3</b>
-</div>
-
-<div class="tip">
-💡 Regra prática: manter a primeira fração, transformar divisão em multiplicação e inverter a segunda.
-</div>
-`
-},
-
-{
- chaves:["porcentagem","porcento","%"],
- titulo:"Porcentagem",
- conteudo:`
-<h3>📊 O que é porcentagem?</h3>
-
-<p>
-Porcentagem representa uma quantidade dividida em cada grupo de 100.
-</p>
-
-<div class="example">
-50% = 50/100 = metade<br>
-25% = 25/100 = um quarto<br>
-10% = 10/100
-</div>
-
-<h3>Exemplo prático</h3>
-
-<p>
-Quanto é 20% de 200?
-</p>
-
-<div class="example">
-20/100 × 200<br>
-= 0,2 × 200<br>
-= <b>40</b>
-</div>
-`
-},
-
-{
- chaves:["equacao","equação","equacoes"],
- titulo:"Equações",
- conteudo:`
-<h3>➕ O que é uma equação?</h3>
-
-<p>
-Uma equação é uma igualdade que possui uma incógnita,
-normalmente representada por uma letra como x.
-</p>
-
-<div class="example">
-x + 5 = 12
-</div>
-
-<p>
-Queremos descobrir qual número representa x.
-</p>
-
-<div class="example">
-x + 5 = 12<br>
-x = 12 - 5<br>
-<b>x = 7</b>
-</div>
-
-<div class="tip">
-💡 O objetivo é deixar a incógnita sozinha.
-</div>
-`
-},
-
-{
- chaves:["fotossintese","fotossíntese"],
- titulo:"Fotossíntese",
- conteudo:`
-<h3>🌱 O que é fotossíntese?</h3>
-
-<p>
-A fotossíntese é um processo utilizado principalmente pelas plantas
-para produzir matéria orgânica usando energia da luz.
-</p>
-
-<div class="example">
-☀️ Luz solar + água + gás carbônico
-→ produção de alimento
-</div>
-
-<p>
-Esse processo é importante para as cadeias alimentares
-e para a dinâmica dos ecossistemas.
-</p>
-`
-},
-
-{
- chaves:["pitagoras","pitágoras"],
- titulo:"Teorema de Pitágoras",
- conteudo:`
-<h3>📐 Teorema de Pitágoras</h3>
-
-<p>
-É aplicado em triângulos retângulos.
-</p>
-
-<div class="example">
-<b>hipotenusa² = cateto² + cateto²</b>
-</div>
-
-<h3>Exemplo</h3>
-
-<div class="example">
-Catetos: 3 e 4<br><br>
-
-3² + 4² = hipotenusa²<br>
-9 + 16 = 25<br>
-√25 = <b>5</b>
-</div>
-
-<p>
-Portanto, a hipotenusa mede 5.
-</p>
-`
-},
-
-{
- chaves:["sistema solar","planetas","planeta"],
- titulo:"Sistema Solar",
- conteudo:`
-<h3>☀️ Sistema Solar</h3>
-
-<p>
-O Sistema Solar é formado pelo Sol e pelos corpos celestes
-que sofrem influência de sua gravidade.
-</p>
-
-<div class="example">
-Mercúrio<br>
-Vênus<br>
-Terra<br>
-Marte<br>
-Júpiter<br>
-Saturno<br>
-Urano<br>
-Netuno
-</div>
-
-<p>
-O Sol é uma estrela localizada no centro do Sistema Solar.
-</p>
-`
-}
-
-];
-
-
-function normalizar(texto){
-
- return texto
- .toLowerCase()
+/* =========================
+   MODO APRENDER
+========================= */
+
+const aulas={
+ adjetivo:{
+  titulo:"Adjetivos",
+  texto:`<h3>O que é um adjetivo?</h3>
+  <p>Adjetivo é a palavra que dá uma característica a um substantivo. Ele pode indicar qualidade, aparência, estado ou característica.</p>
+  <div class="example">🏠 <b>Casa grande</b> → “grande” caracteriza a casa.</div>
+  <div class="example">🐕 <b>Cachorro rápido</b> → “rápido” caracteriza o cachorro.</div>
+  <div class="example">🎬 <b>Filme interessante</b> → “interessante” caracteriza o filme.</div>
+  <h3>Como encontrar?</h3>
+  <p>Pergunte: “Como é esse substantivo?”. A resposta provavelmente será um adjetivo.</p>`
+ },
+ adjetivos:{
+  titulo:"Adjetivos",
+  texto:`<h3>Adjetivos</h3>
+  <p>São palavras que caracterizam substantivos.</p>
+  <div class="example">Flor <b>bonita</b> • carro <b>vermelho</b> • aluno <b>curioso</b></div>
+  <p>Quanto mais você pratica, mais fácil fica identificar a relação entre substantivo e característica.</p>`
+ },
+ "fração":{
+  titulo:"Frações",
+  texto:`<h3>O que são frações?</h3>
+  <p>Uma fração representa partes de um todo dividido em partes iguais.</p>
+  <div class="example"><b>1/2</b> = uma de duas partes iguais (uma metade).</div>
+  <div class="example"><b>3/4</b> = três de quatro partes iguais.</div>
+  <p>O número de cima é o numerador; o de baixo é o denominador.</p>`
+ },
+ "frações":{
+  titulo:"Frações",
+  texto:`<h3>Frações</h3>
+  <p>Representam partes de um todo. Em 3/4, temos três partes escolhidas de quatro partes iguais.</p>
+  <div class="example">1/2 = metade • 1/4 = quarta parte</div>`
+ },
+ "equação do 2 grau":{
+  titulo:"Equação do 2º grau",
+  texto:`<h3>Equações quadráticas</h3>
+  <p>Uma equação do 2º grau possui uma incógnita elevada ao quadrado, geralmente na forma <b>ax² + bx + c = 0</b>.</p>
+  <div class="example">x² + 5x + 6 = 0 → possui x², então é de 2º grau.</div>
+  <p>Ela pode ser resolvida por diferentes métodos, incluindo fatoração e fórmula de Bhaskara.</p>`
+ },
+ "equação do 2º grau":{
+  titulo:"Equação do 2º grau",
+  texto:`<h3>Equação do 2º grau</h3>
+  <p>Forma geral: <b>ax² + bx + c = 0</b>, com a diferente de zero.</p>
+  <div class="example">x² + 3x + 2 = 0</div>`
+ },
+ "sistema solar":{
+  titulo:"Sistema Solar",
+  texto:`<h3>Nosso Sistema Solar</h3>
+  <p>É formado pelo Sol e pelos corpos que sofrem sua influência gravitacional, incluindo planetas, luas, asteroides e cometas.</p>
+  <div class="example">☀️ O Sol é uma estrela e fica no centro do Sistema Solar.</div>
+  <p>Os oito planetas orbitam o Sol em diferentes distâncias.</p>`
+ }
+};
+
+function normalizar(t){
+ return t.toLowerCase()
  .normalize("NFD")
- .replace(/[\u0300-\u036f]/g,"");
-
+ .replace(/[\u0300-\u036f]/g,"")
+ .replace(/[?!.,]/g,"")
+ .trim();
 }
 
+function ensinar(){
+ const texto=normalizar(document.getElementById("busca").value);
+ const aula=document.getElementById("aula");
+ let chave=Object.keys(aulas).find(k=>texto.includes(normalizar(k)));
 
-function pesquisar(){
-
- const busca = normalizar(
-  document.getElementById("busca").value
- );
-
- const resultado =
- document.getElementById("resultadoPesquisa");
-
- resultado.classList.remove("hidden");
-
- let encontrado = null;
-
- for(let item of bibliotecaPesquisa){
-
-  for(let chave of item.chaves){
-
-   if(busca.includes(normalizar(chave))){
-
-    encontrado = item;
-    break;
-
-   }
-
-  }
-
-  if(encontrado) break;
-
+ if(!chave){
+  aula.innerHTML="<h3>🔎 Ainda não tenho essa aula completa</h3><p>O banco inicial reconhece: adjetivo, frações, equação do 2º grau e sistema solar. Podemos expandir o conteúdo depois.</p>";
+  aula.classList.remove("hidden");
+  return;
  }
 
- if(encontrado){
-
-  resultado.innerHTML =
-  `<h2>${encontrado.titulo}</h2>
-   ${encontrado.conteudo}`;
-
- }else{
-
-  resultado.innerHTML = `
-  <h3>🔎 Conteúdo não encontrado</h3>
-
-  <p>
-  Tente pesquisar usando palavras como:
-  adjetivo, fração, divisão de frações,
-  porcentagem, equação, fotossíntese,
-  Pitágoras ou Sistema Solar.
-  </p>
-  `;
-
- }
-
+ aula.innerHTML=`<h2>${aulas[chave].titulo}</h2>
+ ${aulas[chave].texto}
+ <button class="btn" style="margin-top:18px" onclick="document.getElementById('desafio').scrollIntoView({behavior:'smooth'})">Praticar no modo desafio</button>`;
+ aula.classList.remove("hidden");
 }
 
-
-document
-.getElementById("busca")
-.addEventListener("keydown",function(e){
-
- if(e.key==="Enter"){
-  pesquisar();
- }
-
-});
-
-
-/* =====================================================
-   MODO LIVRO
-===================================================== */
-
-const livros = {
-
-"5º ano":{
-
-"Português":[
-
-{
-titulo:"Substantivos",
-texto:`
-<span class="badge">Português • Fundamentos</span>
-
-<h2>Substantivos</h2>
-
-<p>
-Substantivos são palavras usadas para nomear seres,
-objetos, lugares, sentimentos e ideias.
-</p>
-
-<h3>Exemplos</h3>
-
-<div class="example">
-Pessoa: Maria<br>
-Lugar: escola<br>
-Objeto: livro<br>
-Animal: cachorro<br>
-Sentimento: alegria
-</div>
-
-<h3>Como identificar?</h3>
-
-<p>
-Pergunte: esta palavra está dando nome a alguma coisa?
-Se sim, provavelmente é um substantivo.
-</p>
-
-<div class="tip">
-💡 Substantivos ajudam a nomear praticamente tudo ao nosso redor.
-</div>
-
-<div class="exercise">
-<b>Exercício:</b><br>
-Identifique os substantivos na frase:<br>
-"A menina levou o livro para a escola."
-</div>
-`
-},
-
-{
-titulo:"Adjetivos",
-texto:`
-<span class="badge">Português • Características</span>
-
-<h2>Adjetivos</h2>
-
-<p>
-Adjetivos são palavras que indicam características
-ou qualidades dos substantivos.
-</p>
-
-<div class="example">
-Casa grande.<br>
-Cachorro rápido.<br>
-Céu azul.
-</div>
-
-<h3>Como encontrar?</h3>
-
-<p>
-Pergunte como é determinada coisa.
-A resposta geralmente será uma característica.
-</p>
-
-<div class="tip">
-💡 "Menino inteligente": menino é substantivo e inteligente é adjetivo.
-</div>
-`
-},
-
-{
-titulo:"Verbos",
-texto:`
-<span class="badge">Português • Ações</span>
-
-<h2>Verbos</h2>
-
-<p>
-Verbos geralmente indicam ações, estados ou fenômenos.
-</p>
-
-<div class="example">
-João corre.<br>
-Ana estuda.<br>
-O bebê dorme.
-</div>
-
-<h3>Identificando</h3>
-
-<p>
-Observe o que está acontecendo na frase.
-A palavra que indica a ação normalmente é o verbo.
-</p>
-
-<div class="exercise">
-<b>Exercício:</b><br>
-Qual é o verbo em:<br>
-"Pedro brincou no parque."
-</div>
-`
-}
-
-],
-
-"Matemática":[
-
-{
-titulo:"Operações matemáticas",
-texto:`
-<span class="badge">Matemática • Fundamentos</span>
-
-<h2>As quatro operações</h2>
-
-<h3>Adição</h3>
-<p>Representa juntar quantidades.</p>
-
-<div class="example">
-12 + 8 = 20
-</div>
-
-<h3>Subtração</h3>
-<p>Representa retirar ou descobrir diferenças.</p>
-
-<div class="example">
-20 - 7 = 13
-</div>
-
-<h3>Multiplicação</h3>
-<p>Representa adições repetidas.</p>
-
-<div class="example">
-4 × 3 = 12
-</div>
-
-<h3>Divisão</h3>
-<p>Representa repartir ou descobrir quantas vezes uma quantidade cabe em outra.</p>
-
-<div class="example">
-20 ÷ 4 = 5
-</div>
-`
-},
-
-{
-titulo:"Frações",
-texto:`
-<span class="badge">Matemática • Partes</span>
-
-<h2>Frações</h2>
-
-<p>
-Frações representam partes de uma quantidade dividida igualmente.
-</p>
-
-<div class="example">
-1/2 = metade<br>
-1/4 = um quarto<br>
-3/4 = três quartos
-</div>
-
-<h3>Numerador e denominador</h3>
-
-<p>
-O número de cima indica quantas partes foram consideradas.
-O número de baixo mostra em quantas partes o total foi dividido.
-</p>
-
-<div class="tip">
-💡 Em 3/5, temos três partes de um total dividido em cinco.
-</div>
-`
-},
-
-{
-titulo:"Geometria básica",
-texto:`
-<span class="badge">Matemática • Formas</span>
-
-<h2>Figuras geométricas</h2>
-
-<p>
-A geometria estuda formas e propriedades.
-</p>
-
-<div class="example">
-Quadrado: 4 lados iguais<br>
-Triângulo: 3 lados<br>
-Retângulo: lados opostos iguais<br>
-Círculo: forma arredondada
-</div>
-
-<h3>Perímetro</h3>
-
-<p>
-O perímetro é a soma dos lados de uma figura.
-</p>
-
-<div class="example">
-Quadrado de lado 5:<br>
-5 + 5 + 5 + 5 = 20
-</div>
-`
-}
-
-],
-
-"Ciências":[
-
-{
-titulo:"Corpo humano",
-texto:`
-<span class="badge">Ciências • Corpo Humano</span>
-
-<h2>Sistemas do corpo humano</h2>
-
-<p>
-O corpo humano possui sistemas que trabalham juntos.
-</p>
-
-<div class="example">
-Coração → circulação do sangue<br>
-Pulmões → respiração<br>
-Estômago → digestão<br>
-Cérebro → controle e comunicação
-</div>
-
-<div class="tip">
-💡 Nenhum sistema funciona completamente isolado.
-</div>
-`
-},
-
-{
-titulo:"Estados físicos da matéria",
-texto:`
-<span class="badge">Ciências • Matéria</span>
-
-<h2>Estados físicos</h2>
-
-<h3>Sólido</h3>
-<p>Possui forma definida.</p>
-
-<h3>Líquido</h3>
-<p>Possui volume definido, mas assume a forma do recipiente.</p>
-
-<h3>Gasoso</h3>
-<p>Não possui forma fixa.</p>
-
-<div class="example">
-Gelo → sólido<br>
-Água → líquido<br>
-Vapor → gasoso
-</div>
-`
-},
-
-{
-titulo:"Sistema Solar",
-texto:`
-<span class="badge">Ciências • Universo</span>
-
-<h2>O Sistema Solar</h2>
-
-<p>
-O Sistema Solar possui o Sol como sua estrela central
-e diversos corpos que orbitam ao seu redor.
-</p>
-
-<div class="example">
-Mercúrio • Vênus • Terra • Marte<br>
-Júpiter • Saturno • Urano • Netuno
-</div>
-
-<div class="tip">
-💡 A Terra é o terceiro planeta a partir do Sol.
-</div>
-`
-}
-
-],
-
-"História":[
-
-{
-titulo:"O que é História?",
-texto:`
-<span class="badge">História • Introdução</span>
-
-<h2>Estudando o passado</h2>
-
-<p>
-A História estuda sociedades humanas ao longo do tempo.
-Ela ajuda a compreender mudanças, permanências e relações
-entre passado e presente.
-</p>
-
-<h3>Fontes históricas</h3>
-
-<p>
-Historiadores utilizam diferentes tipos de fontes.
-</p>
-
-<div class="example">
-Cartas<br>
-Fotografias<br>
-Objetos<br>
-Construções<br>
-Relatos
-</div>
-`
-},
-
-{
-titulo:"Tempo histórico",
-texto:`
-<span class="badge">História • Tempo</span>
-
-<h2>Organização do tempo</h2>
-
-<p>
-Os acontecimentos podem ser organizados cronologicamente
-para facilitar sua compreensão.
-</p>
-
-<div class="example">
-Passado → acontecimentos anteriores<br>
-Presente → período atual<br>
-Futuro → acontecimentos posteriores
-</div>
-
-<div class="tip">
-💡 Uma linha do tempo ajuda a visualizar acontecimentos em ordem.
-</div>
-`
-}
-
-],
-
-"Geografia":[
-
-{
-titulo:"Mapas e localização",
-texto:`
-<span class="badge">Geografia • Espaço</span>
-
-<h2>Mapas</h2>
-
-<p>
-Mapas são representações de espaços geográficos.
-Eles ajudam pessoas a localizar lugares e compreender territórios.
-</p>
-
-<h3>Elementos importantes</h3>
-
-<div class="example">
-Título<br>
-Legenda<br>
-Escala<br>
-Orientação
-</div>
-`
-},
-
-{
-titulo:"Paisagens",
-texto:`
-<span class="badge">Geografia • Espaço Geográfico</span>
-
-<h2>Paisagens</h2>
-
-<p>
-Paisagens são tudo aquilo que podemos observar em determinado espaço.
-Elas podem possuir elementos naturais e elementos construídos pelas pessoas.
-</p>
-
-<div class="example">
-Natural: rios e montanhas<br>
-Humano: prédios e estradas
-</div>
-`
-}
-
-]
-
-},
-
-
-/* =====================================================
-   6 ANO
-===================================================== */
-
-"6º ano":{
-
-"Português":[
-
-{
-titulo:"Pronomes",
-texto:`
-<span class="badge">Português • Classes gramaticais</span>
-
-<h2>Pronomes</h2>
-
-<p>
-Pronomes podem substituir ou acompanhar substantivos.
-</p>
-
-<div class="example">
-Eu estudo.<br>
-Ela chegou.<br>
-Nós aprendemos.
-</div>
-
-<h3>Função</h3>
-
-<p>
-Eles ajudam a evitar repetições excessivas e indicam participantes da comunicação.
-</p>
-`
-},
-
-{
-titulo:"Sujeito e predicado",
-texto:`
-<span class="badge">Português • Estrutura da oração</span>
-
-<h2>Sujeito e predicado</h2>
-
-<p>
-O sujeito é geralmente o elemento sobre o qual se declara algo.
-O predicado contém aquilo que é declarado sobre ele.
-</p>
-
-<div class="example">
-"Ana estudou matemática."<br><br>
-Sujeito: Ana<br>
-Predicado: estudou matemática
-</div>
-`
-}
-
-],
-
-"Matemática":[
-
-{
-titulo:"Números inteiros",
-texto:`
-<span class="badge">Matemática • Números</span>
-
-<h2>Números positivos e negativos</h2>
-
-<p>
-Números inteiros incluem números negativos, positivos e o zero.
-</p>
-
-<div class="example">
--5, -2, -1, 0, 1, 2, 5
-</div>
-
-<p>
-Eles podem representar temperaturas, dívidas, alturas e outras situações.
-</p>
-`
-},
-
-{
-titulo:"Equações simples",
-texto:`
-<span class="badge">Matemática • Álgebra</span>
-
-<h2>Equações</h2>
-
-<p>
-Uma equação procura determinar um valor desconhecido.
-</p>
-
-<div class="example">
-2x = 18<br>
-x = 18 ÷ 2<br>
-<b>x = 9</b>
-</div>
-`
-}
-
-],
-
-"Ciências":[
-
-{
-titulo:"Células",
-texto:`
-<span class="badge">Ciências • Vida</span>
-
-<h2>A célula</h2>
-
-<p>
-A célula é considerada a unidade básica dos seres vivos.
-</p>
-
-<p>
-Existem organismos formados por uma única célula e outros
-formados por enormes quantidades delas.
-</p>
-`
-},
-
-{
-titulo:"Transformações da matéria",
-texto:`
-<span class="badge">Ciências • Matéria</span>
-
-<h2>Mudanças de estado</h2>
-
-<div class="example">
-Sólido → líquido = fusão<br>
-Líquido → gasoso = vaporização<br>
-Gasoso → líquido = condensação<br>
-Líquido → sólido = solidificação
-</div>
-`
-}
-
-],
-
-"História":[
-
-{
-titulo:"Pré-História",
-texto:`
-<span class="badge">História • Sociedades antigas</span>
-
-<h2>Períodos anteriores à escrita</h2>
-
-<p>
-O termo Pré-História é utilizado tradicionalmente para períodos
-anteriores ao desenvolvimento de sistemas de escrita.
-</p>
-
-<p>
-Arqueólogos estudam vestígios materiais para compreender
-sociedades desse período.
-</p>
-`
-},
-
-{
-titulo:"A importância da escrita",
-texto:`
-<span class="badge">História • Registros</span>
-
-<h2>Registros históricos</h2>
-
-<p>
-A escrita permitiu registrar informações e transmitir conhecimentos
-entre diferentes gerações.
-</p>
-
-<div class="tip">
-💡 Mesmo sociedades sem escrita possuem história e cultura.
-</div>
-`
-}
-
-],
-
-"Geografia":[
-
-{
-titulo:"Relevo",
-texto:`
-<span class="badge">Geografia • Natureza</span>
-
-<h2>Formas da superfície terrestre</h2>
-
-<div class="example">
-Montanhas<br>
-Planaltos<br>
-Planícies<br>
-Depressões
-</div>
-
-<p>
-Essas formas fazem parte do relevo terrestre.
-</p>
-`
-},
-
-{
-titulo:"Clima",
-texto:`
-<span class="badge">Geografia • Atmosfera</span>
-
-<h2>Clima e tempo</h2>
-
-<p>
-Tempo atmosférico representa condições momentâneas.
-Clima representa padrões observados durante longos períodos.
-</p>
-
-<div class="tip">
-💡 "Hoje está chovendo" fala sobre tempo.
-"Uma região possui clima quente" fala sobre clima.
-</div>
-`
-}
-
-]
-
-},
-
-
-/* =====================================================
-   7 ANO
-===================================================== */
-
-"7º ano":{
-
-"Português":[
-{
-titulo:"Advérbios",
-texto:`
-<span class="badge">Português • Gramática</span>
-<h2>Advérbios</h2>
-<p>Advérbios podem modificar verbos, adjetivos ou outros advérbios, indicando circunstâncias.</p>
-<div class="example">
-Ele correu rapidamente → modo<br>
-Cheguei ontem → tempo<br>
-Moro longe → lugar
-</div>
-`
-},
-{
-titulo:"Conjunções",
-texto:`
-<span class="badge">Português • Conexão</span>
-<h2>Conjunções</h2>
-<p>Conjunções conectam palavras e ideias.</p>
-<div class="example">
-Estudei porque queria aprender.<br>
-João chegou e Maria saiu.
-</div>
-`
-}
-],
-
-"Matemática":[
-{
-titulo:"Porcentagem",
-texto:`
-<span class="badge">Matemática • Proporção</span>
-<h2>Porcentagem</h2>
-<p>Porcentagem representa uma razão relacionada a 100.</p>
-<div class="example">
-15% de 200 = 0,15 × 200 = 30
-</div>
-`
-},
-{
-titulo:"Potenciação",
-texto:`
-<span class="badge">Matemática • Potências</span>
-<h2>Potenciação</h2>
-<p>Uma potência representa multiplicações repetidas.</p>
-<div class="example">
-2³ = 2 × 2 × 2 = 8
-</div>
-`
-}
-],
-
-"Ciências":[
-{
-titulo:"Ecologia",
-texto:`
-<span class="badge">Ciências • Ecossistemas</span>
-<h2>Ecologia</h2>
-<p>A ecologia estuda relações entre organismos e o ambiente.</p>
-<div class="example">
-Seres vivos + ambiente + interações = ecossistema
-</div>
-`
-},
-{
-titulo:"Cadeias alimentares",
-texto:`
-<span class="badge">Ciências • Alimentação</span>
-<h2>Cadeias alimentares</h2>
-<p>Representam relações alimentares e transferências de matéria e energia.</p>
-<div class="example">
-Planta → gafanhoto → sapo → cobra
-</div>
-`
-}
-],
-
-"História":[
-{
-titulo:"Idade Média",
-texto:`
-<span class="badge">História • Períodos históricos</span>
-<h2>Sociedades medievais</h2>
-<p>A Idade Média é um período utilizado para estudar parte da história europeia.</p>
-<p>Durante esse período existiram diferentes formas de organização social, econômica e política.</p>
-`
-},
-{
-titulo:"Renascimento",
-texto:`
-<span class="badge">História • Cultura</span>
-<h2>Renascimento</h2>
-<p>O Renascimento esteve associado a importantes transformações culturais e artísticas.</p>
-`
-}
-],
-
-"Geografia":[
-{
-titulo:"Migrações",
-texto:`
-<span class="badge">Geografia • População</span>
-<h2>Migração</h2>
-<p>Migração é o deslocamento de pessoas entre lugares.</p>
-<div class="example">
-Migração interna → dentro de um país<br>
-Migração internacional → entre países
-</div>
-`
-},
-{
-titulo:"Urbanização",
-texto:`
-<span class="badge">Geografia • Cidades</span>
-<h2>Urbanização</h2>
-<p>Urbanização está relacionada ao crescimento das cidades e da população urbana.</p>
-`
-}
-]
-
-},
-
-
-/* =====================================================
-   8 ANO
-===================================================== */
-
-"8º ano":{
-
-"Português":[
-{
-titulo:"Linguagem figurada",
-texto:`
-<span class="badge">Português • Interpretação</span>
-<h2>Linguagem figurada</h2>
-<p>Na linguagem figurada, palavras podem possuir sentidos diferentes do literal.</p>
-<div class="example">
-"Ele tem um coração de pedra."
-</div>
-<p>A frase não significa literalmente que existe uma pedra no corpo da pessoa.</p>
-`
-},
-{
-titulo:"Argumentação",
-texto:`
-<span class="badge">Português • Texto</span>
-<h2>Argumentação</h2>
-<p>Argumentar significa defender uma ideia utilizando justificativas.</p>
-<h3>Elementos</h3>
-<div class="example">
-Tese → ideia defendida<br>
-Argumento → justificativa<br>
-Evidência → informação que fortalece
-</div>
-`
-}
-],
-
-"Matemática":[
-{
-titulo:"Raiz quadrada",
-texto:`
-<span class="badge">Matemática • Números</span>
-<h2>Raiz quadrada</h2>
-<p>A raiz quadrada procura um número que multiplicado por ele mesmo produz determinado resultado.</p>
-<div class="example">
-√81 = 9<br>
-porque 9 × 9 = 81
-</div>
-`
-},
-{
-titulo:"Funções",
-texto:`
-<span class="badge">Matemática • Álgebra</span>
-<h2>Relações entre variáveis</h2>
-<p>Uma função relaciona valores de uma variável com valores de outra.</p>
-<div class="example">
-y = 2x + 1<br>
-Se x = 3:<br>
-y = 2×3 + 1 = 7
-</div>
-`
-}
-],
-
-"Ciências":[
-{
-titulo:"Átomos",
-texto:`
-<span class="badge">Ciências • Matéria</span>
-<h2>Estrutura da matéria</h2>
-<p>Os átomos fazem parte da estrutura da matéria e possuem partículas menores.</p>
-<div class="example">
-Prótons<br>
-Nêutrons<br>
-Elétrons
-</div>
-`
-},
-{
-titulo:"Transformações químicas",
-texto:`
-<span class="badge">Ciências • Química</span>
-<h2>Reações químicas</h2>
-<p>Transformações químicas podem produzir novas substâncias.</p>
-<p>Isso é diferente de apenas mudar o estado físico de um material.</p>
-`
-}
-],
-
-"História":[
-{
-titulo:"Iluminismo",
-texto:`
-<span class="badge">História • Ideias</span>
-<h2>Iluminismo</h2>
-<p>O Iluminismo valorizou a razão, a investigação e debates sobre organização política e social.</p>
-`
-},
-{
-titulo:"Revoluções",
-texto:`
-<span class="badge">História • Transformações</span>
-<h2>Processos revolucionários</h2>
-<p>Revoluções podem provocar mudanças profundas em sistemas políticos e sociais.</p>
-`
-}
-],
-
-"Geografia":[
-{
-titulo:"Globalização",
-texto:`
-<span class="badge">Geografia • Mundo</span>
-<h2>Globalização</h2>
-<p>A globalização envolve intensificação de conexões entre diferentes regiões do mundo.</p>
-<div class="example">
-Economia<br>
-Comunicação<br>
-Cultura<br>
-Tecnologia
-</div>
-`
-},
-{
-titulo:"Problemas ambientais",
-texto:`
-<span class="badge">Geografia • Meio Ambiente</span>
-<h2>Impactos ambientais</h2>
-<p>Atividades humanas podem produzir impactos ambientais em diferentes escalas.</p>
-`
-}
-]
-
-},
-
-
-/* =====================================================
-   9 ANO
-===================================================== */
-
-"9º ano":{
-
-"Português":[
-{
-titulo:"Texto argumentativo",
-texto:`
-<span class="badge">Português • Argumentação</span>
-<h2>Defendendo ideias</h2>
-<p>Um texto argumentativo apresenta um ponto de vista e utiliza argumentos para defendê-lo.</p>
-<div class="example">
-Tese → posição principal<br>
-Argumentos → justificativas<br>
-Conclusão → encerramento
-</div>
-`
-},
-{
-titulo:"Leitura crítica",
-texto:`
-<span class="badge">Português • Análise</span>
-<h2>Analisando informações</h2>
-<p>Leitura crítica significa analisar informações, fontes, argumentos e possíveis perspectivas.</p>
-`
-}
-],
-
-"Matemática":[
-{
-titulo:"Teorema de Pitágoras",
-texto:`
-<span class="badge">Matemática • Geometria</span>
-<h2>Triângulos retângulos</h2>
-<div class="example">
-a² + b² = c²
-</div>
-<p>O lado c representa a hipotenusa, o maior lado do triângulo retângulo.</p>
-<div class="example">
-3² + 4² = c²<br>
-9 + 16 = 25<br>
-c = 5
-</div>
-`
-},
-{
-titulo:"Funções",
-texto:`
-<span class="badge">Matemática • Álgebra</span>
-<h2>Funções lineares</h2>
-<p>Funções podem representar relações entre grandezas.</p>
-<div class="example">
-y = 2x + 3
-</div>
-`
-}
-],
-
-"Ciências":[
-{
-titulo:"Genética",
-texto:`
-<span class="badge">Ciências • Vida</span>
-<h2>Hereditariedade</h2>
-<p>A hereditariedade está relacionada à transmissão de características biológicas.</p>
-<p>O DNA está associado ao armazenamento de informações genéticas.</p>
-`
-},
-{
-titulo:"Evolução",
-texto:`
-<span class="badge">Ciências • Seres vivos</span>
-<h2>Processos evolutivos</h2>
-<p>A evolução envolve mudanças nas populações ao longo de muitas gerações.</p>
-`
-}
-],
-
-"História":[
-{
-titulo:"Industrialização",
-texto:`
-<span class="badge">História • Economia</span>
-<h2>Transformações industriais</h2>
-<p>A industrialização modificou formas de produção, trabalho e organização das cidades.</p>
-`
-},
-{
-titulo:"Direitos Humanos",
-texto:`
-<span class="badge">História • Sociedade</span>
-<h2>Direitos fundamentais</h2>
-<p>Direitos humanos estão relacionados à proteção da dignidade e de direitos fundamentais das pessoas.</p>
-`
-}
-],
-
-"Geografia":[
-{
-titulo:"Geopolítica",
-texto:`
-<span class="badge">Geografia • Poder</span>
-<h2>Geopolítica</h2>
-<p>A geopolítica analisa relações entre poder, territórios e espaços geográficos.</p>
-`
-},
-{
-titulo:"Matriz energética",
-texto:`
-<span class="badge">Geografia • Energia</span>
-<h2>Fontes de energia</h2>
-<p>Matriz energética representa o conjunto de fontes de energia utilizadas por uma sociedade.</p>
-<div class="example">
-Solar<br>
-Eólica<br>
-Hidrelétrica<br>
-Fóssil
-</div>
-`
-}
-]
-
-}
-
-};
-
-
-/* =====================================================
-   ABRIR LIVRO
-===================================================== */
-
-function abrirLivro(){
-
- document
- .getElementById("livroArea")
- .classList
- .remove("hidden");
-
- document.getElementById("livroTitulo").innerText =
- "📚 " + anoAtual + " • " + materiaAtual;
-
- const lista =
- livros[anoAtual][materiaAtual];
-
- const area =
- document.getElementById("listaCapitulos");
-
- area.innerHTML = "";
-
- lista.forEach((capitulo,index)=>{
-
-  const item =
-  document.createElement("div");
-
-  item.className = "chapter";
-
-  item.innerHTML =
-  "📖 " + capitulo.titulo;
-
-  item.onclick = function(){
-
-   document
-   .querySelectorAll(".chapter")
-   .forEach(c=>c.classList.remove("active"));
-
-   item.classList.add("active");
-
-   document
-   .getElementById("conteudoLivro")
-   .innerHTML = capitulo.texto;
-
-  };
-
-  area.appendChild(item);
-
- });
-
- if(lista.length > 0){
-
-  setTimeout(()=>{
-   area.children[0].click();
-  },50);
-
- }
-
- irPara("livroArea");
-
-}
-
-
-/* =====================================================
+/* =========================
    BANCO DE QUESTÕES
-===================================================== */
+========================= */
 
-const banco = {};
-
-const anos = [
-"5º ano",
-"6º ano",
-"7º ano",
-"8º ano",
-"9º ano"
-];
-
-const materias = [
-"Português",
-"Matemática",
-"Ciências",
-"História",
-"Geografia"
-];
-
-anos.forEach(ano=>{
-
- banco[ano] = {};
-
- materias.forEach(materia=>{
-
-  banco[ano][materia] = [];
-
- });
-
-});
-
-
-function adicionarPergunta(
-ano,
-materia,
-dificuldade,
-pergunta,
-opcoes,
-resposta,
-explicacao
-){
-
- banco[ano][materia].push({
-  dificuldade,
-  pergunta,
-  opcoes,
-  resposta,
-  explicacao
- });
-
-}
-
-
-/* =====================================================
-   PERGUNTAS VARIADAS DE PORTUGUÊS
-===================================================== */
-
-const palavras = {
-
-substantivos:[
-"casa","cidade","livro","professor",
-"escola","cachorro","janela","montanha"
-],
-
-adjetivos:[
-"feliz","rápido","inteligente","grande",
-"pequeno","bonito","forte","calmo"
-],
-
-verbos:[
-"correr","estudar","brincar","viajar",
-"comer","dormir","escrever","aprender"
-],
-
-adverbios:[
-"rapidamente","lentamente","ontem",
-"amanhã","aqui","longe"
-]
-
+const banco={
+ Português:[],
+ Matemática:[],
+ Ciências:[],
+ História:[],
+ Geografia:[]
 };
 
-
-/* Tipo 1: classificação */
-
-palavras.substantivos.forEach(p=>{
-
- anos.forEach((ano,index)=>{
-
-  adicionarPergunta(
-   ano,
-   "Português",
-   Math.min(5,index+1),
-   `A palavra "${p}" é classificada principalmente como:`,
-   ["Substantivo","Verbo","Adjetivo","Advérbio"],
-   0,
-   `"${p}" nomeia algo e funciona como substantivo.`
-  );
-
+function add(area,d,p,o,r,e){
+ banco[area].push({
+  d,
+  pergunta:p,
+  opcoes:o,
+  resposta:r,
+  explicacao:e
  });
-
-});
-
-
-/* Tipo 2: frase */
-
-const frasesVerbo = [
-["Maria estudou para a prova.","estudou"],
-["Pedro correu até a escola.","correu"],
-["Os alunos aprenderam rapidamente.","aprenderam"],
-["O cachorro dormiu cedo.","dormiu"],
-["Ana escreveu uma carta.","escreveu"],
-["João brincou no parque.","brincou"]
-];
-
-anos.forEach((ano,index)=>{
-
- frasesVerbo.forEach((f,i)=>{
-
-  adicionarPergunta(
-   ano,
-   "Português",
-   Math.min(5,1+Math.floor((i+index)/2)),
-   `Observe a frase: "${f[0]}" Qual palavra indica a ação principal?`,
-   [f[1],"Maria","escola","uma"],
-   0,
-   `A palavra "${f[1]}" indica a ação realizada.`
-  );
-
- });
-
-});
-
-
-/* Tipo 3: interpretação */
-
-const interpretacoes = [
-[
-"Lucas estudou bastante porque queria melhorar suas notas.",
-"Lucas estudou porque desejava melhorar."
-],
-[
-"Apesar da chuva, a equipe continuou treinando.",
-"A equipe não interrompeu o treinamento."
-],
-[
-"A cidade cresceu rapidamente nos últimos anos.",
-"O crescimento da cidade ocorreu em pouco tempo."
-],
-[
-"Maria chegou cedo para não perder a apresentação.",
-"Maria queria estar presente antes do início."
-]
-];
-
-anos.forEach((ano,index)=>{
-
- interpretacoes.forEach((item,i)=>{
-
-  adicionarPergunta(
-   ano,
-   "Português",
-   Math.min(5,2+index),
-   `Leia: "${item[0]}" Qual interpretação é mais adequada?`,
-   [
-    item[1],
-    "O texto fala sobre astronomia.",
-    "Nenhuma ação aconteceu.",
-    "A frase não possui significado."
-   ],
-   0,
-   "A interpretação correta deve considerar as informações apresentadas."
-  );
-
- });
-
-});
-
-
-/* =====================================================
-   MATEMÁTICA - QUESTÕES VARIADAS
-===================================================== */
-
-/* Problemas de soma */
-
-for(let i=1;i<=50;i++){
-
- let a = 10 + i*3;
- let b = 5 + i;
-
- adicionarPergunta(
- "5º ano",
- "Matemática",
- i<20?1:2,
- `Uma biblioteca possui ${a} livros e recebeu mais ${b}. Quantos livros possui agora?`,
- [
- String(a+b),
- String(a-b),
- String(a*b),
- String(b)
- ],
- 0,
- `Basta somar ${a} + ${b} = ${a+b}.`
- );
-
 }
 
+/* =========================
+   PORTUGUÊS — NÍVEL REFORÇADO
+========================= */
 
-/* Problemas contextualizados */
+const portugues=[
 
-for(let i=1;i<=50;i++){
+[2,"Na frase “Embora estivesse cansada, Júlia terminou o trabalho”, a palavra “embora” estabelece ideia de:",["Concessão","Causa","Conclusão","Finalidade"],0,"“Embora” introduz uma concessão: algo acontece apesar de uma condição contrária."],
 
- let total = 30+i*4;
- let grupos = 2+(i%8);
+[3,"Leia: “A cidade acordou lentamente, espreguiçando-se sob o sol.” O recurso expressivo predominante é:",["Personificação","Hipérbole","Ironia","Eufemismo"],0,"A cidade recebe uma ação humana: acordar e espreguiçar-se."],
 
- if(total%grupos!==0){
-  total += grupos-(total%grupos);
- }
+[3,"Em “Os estudantes que revisaram o conteúdo tiveram melhor resultado”, a oração “que revisaram o conteúdo” é:",["Oração subordinada adjetiva restritiva","Oração coordenada explicativa","Oração subordinada adverbial causal","Oração principal"],0,"A oração caracteriza e restringe quais estudantes tiveram melhor resultado."],
 
- let resposta = total/grupos;
+[4,"Em “Fazem dois anos que não o vejo”, a forma verbal está inadequada porque:",["O verbo fazer indicando tempo decorrido é impessoal: “faz”","O sujeito está no plural","O verbo deveria concordar com “anos”","A frase exige o verbo “haver” no plural"],0,"Quando indica tempo decorrido, “fazer” é impessoal e fica na 3ª pessoa do singular."],
 
- adicionarPergunta(
- "6º ano",
- "Matemática",
- 2,
- `Uma escola possui ${total} alunos distribuídos igualmente em ${grupos} grupos. Quantos alunos ficam em cada grupo?`,
- [
- String(resposta),
- String(total-grupos),
- String(grupos*2),
- String(total)
- ],
- 0,
- `Dividimos ${total} por ${grupos}, obtendo ${resposta}.`
- );
+[4,"Leia: “O relatório foi entregue pelos pesquisadores.” Ao passar a frase para a voz ativa, temos:",["Os pesquisadores entregaram o relatório.","Os pesquisadores foram entregues pelo relatório.","Entregou-se pelos pesquisadores o relatório.","O relatório entregou os pesquisadores."],0,"Na voz ativa, o agente da passiva vira sujeito: os pesquisadores entregaram."],
 
-}
+[5,"Em um artigo de opinião, qual alternativa apresenta uma tese, e não apenas um dado?",["As escolas devem ampliar projetos de leitura porque eles fortalecem a autonomia dos estudantes.","A biblioteca possui 2.400 livros catalogados.","A pesquisa foi realizada em três turmas.","O projeto começou no mês de março."],0,"A tese é uma posição defendida por meio de argumentos."],
 
+[3,"Na frase “Ele estudou bastante; portanto, foi aprovado”, o conectivo “portanto” indica:",["Conclusão","Oposição","Condição","Explicação"],0,"“Portanto” introduz uma conclusão decorrente da informação anterior."],
 
-/* Equações com formatos diferentes */
+[4,"Assinale a alternativa em que a concordância nominal está correta:",["As provas e os exercícios estavam difíceis.","As provas e os exercícios estava difícil.","A prova e os exercícios estava difíceis.","As provas e o exercício estavam difícil."],0,"O adjetivo no plural concorda com os núcleos do sujeito."],
 
-for(let ano=6;ano<=9;ano++){
+[5,"Um texto afirma: “A tecnologia aproxima pessoas distantes, mas pode afastar quem está perto.” A relação construída é de:",["Contraste entre efeitos positivos e negativos","Sequência cronológica","Comparação de tamanhos","Explicação de uma causa única"],0,"A conjunção “mas” contrapõe dois efeitos da tecnologia."],
 
- for(let i=1;i<=80;i++){
+[4,"Em “Precisa-se de voluntários”, o sujeito é:",["Indeterminado","Simples: voluntários","Composto","Oculto: nós"],0,"Com verbo transitivo indireto + “se”, o sujeito é indeterminado."],
 
-  let x = i+2;
-  let b = (i%12)+3;
-  let resultado = x+b;
+[5,"Qual alternativa apresenta uma inferência válida a partir da frase “Mesmo com o céu nublado, a equipe manteve o treino ao ar livre”?",["A equipe decidiu treinar apesar da possibilidade de chuva.","Certamente choveu durante todo o treino.","A equipe cancelou a atividade.","O céu estava completamente limpo."],0,"A expressão “mesmo com” indica que a equipe manteve a atividade apesar de uma condição desfavorável."],
 
-  let dificuldade =
-  ano>=8 ? 3 : 2;
-
-  adicionarPergunta(
-   ano+"º ano",
-   "Matemática",
-   dificuldade,
-   `Resolva a situação: um número desconhecido somado a ${b} resulta em ${resultado}. Qual é esse número?`,
-   [
-    String(x),
-    String(resultado),
-    String(b),
-    String(x+1)
-   ],
-   0,
-   `Para descobrir o número, fazemos ${resultado} - ${b} = ${x}.`
-  );
-
- }
-
-}
-
-
-/* Pitágoras contextual */
-
-const triangulos = [
-[3,4,5],
-[5,12,13],
-[8,15,17],
-[7,24,25]
-];
-
-triangulos.forEach(t=>{
-
- adicionarPergunta(
- "9º ano",
- "Matemática",
- 4,
- `Um triângulo retângulo possui catetos medindo ${t[0]} e ${t[1]}. Qual é sua hipotenusa?`,
- [
- String(t[2]),
- String(t[0]+t[1]),
- String(t[2]-1),
- String(t[2]+2)
- ],
- 0,
- `Aplicamos Pitágoras: ${t[0]}² + ${t[1]}² = ${t[2]}².`
- );
-
-});
-
-
-/* =====================================================
-   CIÊNCIAS - VARIEDADE
-===================================================== */
-
-const cienciaPerguntas = [
-
-[
-"Qual estrutura do corpo humano bombeia o sangue?",
-["Pulmões","Coração","Estômago","Rins"],
-1,
-"O coração bombeia sangue pelo sistema circulatório."
-],
-
-[
-"Quando a água passa do estado líquido para o gasoso ocorre:",
-["Evaporação","Congelamento","Solidificação","Condensação"],
-0,
-"A evaporação é uma forma de passagem do líquido para o gasoso."
-],
-
-[
-"Qual afirmação descreve melhor um ecossistema?",
-[
-"Relações entre organismos e ambiente",
-"Apenas animais de uma floresta",
-"Somente plantas",
-"Um planeta sem vida"
-],
-0,
-"Ecossistemas envolvem seres vivos e fatores do ambiente."
-],
-
-[
-"Por que a luz solar é importante para a fotossíntese?",
-[
-"Fornece energia para o processo",
-"Transforma plantas em animais",
-"Cria água diretamente",
-"Impede o crescimento"
-],
-0,
-"A luz fornece energia utilizada na produção de matéria orgânica."
-],
-
-[
-"Qual sequência representa corretamente uma cadeia alimentar?",
-[
-"Planta → herbívoro → carnívoro",
-"Carnívoro → Sol → pedra",
-"Água → cidade → planeta",
-"Animal → letra → número"
-],
-0,
-"A energia passa inicialmente pelos produtores e segue pelas relações alimentares."
-],
-
-[
-"DNA está principalmente relacionado a:",
-[
-"Informação genética",
-"Previsão do tempo",
-"Formação de mapas",
-"Operações matemáticas"
-],
-0,
-"O DNA está associado ao armazenamento de informações genéticas."
-]
+[5,"Em uma notícia, a informação “Segundo especialistas consultados...” tem principalmente a função de:",["Indicar a fonte de uma informação e dar sustentação à matéria","Apresentar a opinião pessoal do leitor","Substituir o título","Criar uma personagem fictícia"],0,"A atribuição identifica de onde veio a informação e permite avaliar sua credibilidade."]
 
 ];
 
+portugues.forEach(q=>add("Português",q[0],q[1],q[2],q[3],q[4],q[5]));
 
-anos.forEach((ano,ai)=>{
+/* =========================
+   MATEMÁTICA — NÍVEL REFORÇADO
+========================= */
 
- cienciaPerguntas.forEach((q,i)=>{
+const matematica=[
 
-  adicionarPergunta(
-   ano,
-   "Ciências",
-   Math.min(5,1+Math.floor((i+ai)/2)),
-   q[0],
-   q[1],
-   q[2],
-   q[3]
-  );
+[2,"Uma mochila custa R$ 160. Recebe desconto de 15% e, sobre o preço com desconto, é aplicado um cupom de mais 10%. Qual é o preço final?",["R$ 122,40","R$ 120,00","R$ 128,00","R$ 136,00"],0,"Primeiro: 160 × 0,85 = 136. Depois: 136 × 0,90 = R$ 122,40. Os descontos são sucessivos."],
 
- });
+[3,"Uma torneira enche 3/8 de um tanque em 12 minutos, mantendo vazão constante. Quanto tempo levará para encher o tanque inteiro?",["32 minutos","24 minutos","36 minutos","48 minutos"],0,"Se 3/8 levam 12 min, 1/8 leva 4 min; 8/8 levam 32 min."],
 
-});
+[3,"A média de cinco notas é 7,2. Quatro notas são 6,5; 7; 8 e 7,5. Qual é a quinta nota?",["7","6,5","7,5","8"],0,"A soma total deve ser 5 × 7,2 = 36. As quatro notas somam 29; a quinta é 7."],
 
+[4,"Resolva: 3(2x − 5) = 4x + 7.",["x = 11","x = 8","x = 7","x = 12"],0,"6x − 15 = 4x + 7; 2x = 22; portanto x = 11."],
 
-/* =====================================================
-   HISTÓRIA - VARIEDADE
-===================================================== */
+[4,"Um terreno retangular tem perímetro de 54 m. O comprimento mede 3 m a mais que o dobro da largura. Qual é a largura?",["8 m","7 m","9 m","10 m"],0,"Se a largura é x, o comprimento é 2x+3. Então 2(x+2x+3)=54; 6x+6=54; x=8."],
 
-const historiaPerguntas = [
+[5,"Uma caixa contém 5 bolas vermelhas, 3 azuis e 2 verdes. Retirando uma bola ao acaso, qual é a probabilidade de NÃO ser azul?",["7/10","3/10","1/2","2/5"],0,"Há 10 bolas no total e 7 não são azuis: 7/10."],
 
-[
-"Qual é uma função importante das fontes históricas?",
-[
-"Ajudar a compreender sociedades do passado",
-"Eliminar acontecimentos",
-"Prever exatamente o futuro",
-"Substituir todas as pesquisas"
-],
-0,
-"Fontes fornecem evidências e informações para análises históricas."
-],
+[5,"As medidas de um triângulo são x, x+20° e 2x. Qual é o maior ângulo?",["100°","80°","60°","120°"],1,"x+(x+20)+2x=180; 4x=160; x=40. Os ângulos são 40°, 60° e 80°. O maior é 80°."],
 
-[
-"Uma fotografia antiga pode ser considerada:",
-[
-"Uma fonte histórica",
-"Uma operação matemática",
-"Um planeta",
-"Um elemento químico"
-],
-0,
-"Fotografias podem fornecer informações sobre diferentes épocas."
-],
+[3,"Um produto passou de R$ 80 para R$ 92. Qual foi o aumento percentual?",["15%","12%","18%","20%"],0,"O aumento foi 12. Dividindo 12 por 80: 0,15 = 15%."],
 
-[
-"Por que diferentes fontes podem apresentar perspectivas distintas?",
-[
-"Porque pessoas e grupos podem registrar acontecimentos de formas diferentes",
-"Porque a História não possui fontes",
-"Porque todas as fontes são iguais",
-"Porque acontecimentos não possuem contexto"
-],
-0,
-"Perspectivas diferentes podem enriquecer a compreensão histórica."
-],
+[4,"Em um mapa de escala 1:50.000, a distância entre dois pontos é 6 cm. Qual é a distância real?",["3 km","300 m","30 km","500 m"],0,"6 × 50.000 = 300.000 cm = 3.000 m = 3 km."],
 
-[
-"Uma consequência comum da industrialização foi:",
-[
-"Transformações no trabalho e nas cidades",
-"O desaparecimento de todas as sociedades",
-"O fim de qualquer tecnologia",
-"A interrupção completa da economia"
-],
-0,
-"A industrialização provocou importantes mudanças sociais e econômicas."
-],
+[5,"Uma função é dada por f(x)=2x²−3. Qual é o valor de f(−4)?",["29","−35","13","35"],0,"f(−4)=2×(−4)²−3=2×16−3=29."],
 
-[
-"Estudar História ajuda principalmente a:",
-[
-"Compreender relações entre passado e presente",
-"Apagar acontecimentos",
-"Decorar apenas datas",
-"Eliminar culturas"
-],
-0,
-"A análise histórica busca compreender processos e contextos."
-]
+[5,"Um reservatório estava com 3/5 de sua capacidade. Foram usados 120 litros, restando 1/3 da capacidade total. Qual é a capacidade do reservatório?",["450 litros","360 litros","500 litros","600 litros"],0,"A diferença entre 3/5 e 1/3 é 4/15 da capacidade. Se 4/15 = 120 L, a capacidade é 120×15/4 = 450 L."],
+
+[4,"Dois números estão na razão 3:5 e somam 64. Qual é o maior número?",["40","24","32","48"],0,"A soma das partes é 8. Cada parte vale 64/8=8; o maior é 5×8=40."]
 
 ];
 
+matematica.forEach(q=>add("Matemática",q[0],q[1],q[2],q[3],q[4],q[5]));
 
-anos.forEach((ano,ai)=>{
+/* =========================
+   CIÊNCIAS — NÍVEL REFORÇADO
+========================= */
 
- historiaPerguntas.forEach((q,i)=>{
+const ciencias=[
 
-  adicionarPergunta(
-   ano,
-   "História",
-   Math.min(5,1+Math.floor((i+ai)/2)),
-   q[0],
-   q[1],
-   q[2],
-   q[3]
-  );
+[2,"Uma planta foi mantida por vários dias em ambiente iluminado, mas sem gás carbônico disponível. Qual processo será diretamente limitado?",["Fotossíntese","Absorção de água pelas raízes","Transpiração exclusivamente","Germinação de sementes"],0,"O gás carbônico é uma das matérias-primas da fotossíntese, junto com água e energia luminosa."],
 
- });
+[3,"Em uma cadeia alimentar capim → gafanhoto → sapo → cobra, o que tende a acontecer com a energia disponível a cada transferência entre níveis tróficos?",["Diminui, pois parte é utilizada e dissipada pelos organismos","Aumenta continuamente","Permanece exatamente igual","Transforma-se integralmente em matéria"],0,"A transferência de energia não é 100% eficiente; parte é usada no metabolismo e dissipada como calor."],
 
+[3,"Uma pessoa coloca uma colher metálica e uma colher de madeira em água quente. A metálica parece aquecer mais rapidamente. Isso ocorre principalmente porque:",["O metal conduz calor melhor que a madeira","A madeira não recebe energia térmica","O metal produz calor espontaneamente","A água aquece apenas os metais"],0,"Metais geralmente possuem maior condutividade térmica que a madeira."],
+
+[4,"Por que os antibióticos não são eficazes contra doenças causadas exclusivamente por vírus?",["Porque atuam em estruturas ou processos bacterianos que os vírus não possuem","Porque vírus são sempre maiores que bactérias","Porque antibióticos só funcionam em temperaturas baixas","Porque os vírus são células completas"],0,"Antibióticos têm alvos bacterianos, como parede celular ou ribossomos; vírus dependem das células hospedeiras."],
+
+[4,"Em um experimento, uma população de bactérias é exposta repetidamente a um antibiótico. Após algumas gerações, a proporção de bactérias resistentes aumenta. A melhor explicação é:",["A seleção natural favoreceu bactérias que já possuíam resistência","As bactérias decidiram se adaptar por necessidade","O antibiótico ensinou todas as bactérias a resistir","A resistência surgiu igualmente em todos os indivíduos"],0,"Variações hereditárias já existentes podem conferir resistência; o antibiótico seleciona os indivíduos resistentes."],
+
+[5,"Em um ecossistema, a redução drástica de predadores de uma espécie herbívora pode provocar:",["Aumento dos herbívoros e maior pressão sobre os produtores","Desaparecimento imediato de todos os produtores","Aumento obrigatório de todos os níveis tróficos","Nenhuma alteração nas relações alimentares"],0,"Menos predadores pode elevar a população herbívora, intensificando o consumo de plantas."],
+
+[5,"Uma solução apresenta pH 3 e outra pH 5. Considerando a escala de pH, a primeira solução possui:",["Concentração de íons H⁺ cem vezes maior","Concentração de íons H⁺ duas vezes maior","Concentração de íons H⁺ cem vezes menor","A mesma concentração de H⁺"],0,"Cada unidade de pH representa fator 10; diferença de 2 unidades corresponde a fator 100."],
+
+[3,"Quando o vapor de água presente no ar se transforma em gotículas sobre a superfície fria de um copo, ocorre:",["Condensação","Evaporação","Fusão","Sublimação"],0,"Condensação é a passagem do estado gasoso para o líquido."],
+
+[4,"Uma pessoa empurra uma caixa com força horizontal constante, mas ela não se move. Qual afirmação é correta?",["A força resultante horizontal pode ser nula, pois o atrito estático equilibra o empurrão","Não existe força de atrito","A caixa não recebe nenhuma força","A força aplicada desaparece dentro da caixa"],0,"O atrito estático pode equilibrar a força aplicada enquanto a caixa permanece em repouso."],
+
+[5,"Por que a biodiversidade costuma aumentar a estabilidade de um ecossistema?",["Porque diferentes espécies podem desempenhar funções ecológicas complementares","Porque todas as espécies ocupam exatamente o mesmo nicho","Porque elimina qualquer mudança ambiental","Porque impede totalmente a competição"],0,"Maior diversidade pode oferecer redundância funcional e tornar processos ecológicos menos vulneráveis a perdas."],
+
+[4,"Uma característica recessiva só se manifesta em um indivíduo com dois alelos recessivos, em um modelo mendeliano simples. Se dois pais heterozigotos (Aa) tiverem um filho, qual é a probabilidade de aa?",["25%","50%","75%","100%"],0,"No cruzamento Aa × Aa, as combinações possíveis são AA, Aa, Aa e aa."],
+
+[5,"Uma cidade impermeabiliza grande parte do solo com asfalto. Qual consequência hidrológica é mais provável?",["Aumento do escoamento superficial e possível redução da infiltração","Aumento da infiltração da água no solo","Interrupção completa da evaporação","Diminuição automática das chuvas regionais"],0,"Superfícies impermeáveis dificultam a infiltração e favorecem o escoamento superficial."]
+
+];
+
+ciencias.forEach(q=>add("Ciências",q[0],q[1],q[2],q[3],q[4],q[5]));
+
+/* =========================
+   HISTÓRIA
+========================= */
+
+const hist=[
+["civilizações antigas","sociedades do passado"],
+["Idade Média","período histórico europeu"],
+["Renascimento","transformações culturais"],
+["Revolução Industrial","mudanças na produção e trabalho"],
+["República","forma de organização política"],
+["Guerras Mundiais","conflitos internacionais de grande escala"],
+["colonização","ocupação e domínio de territórios"],
+["movimentos sociais","ações coletivas por mudanças"],
+["fontes históricas","vestígios usados para estudar o passado"]
+];
+
+hist.forEach((x,i)=>{
+ add("História",1+(i%2),"A História estuda principalmente:",["sociedades humanas ao longo do tempo","apenas planetas","somente cálculos","somente animais"],0,"A História investiga experiências humanas no tempo.");
+
+ add("História",2+(i%3),`"${x[0]}" está relacionado a:`,[x[1],"Uma fórmula matemática","Um órgão do corpo","Uma espécie animal"],0,`Esse conceito histórico se relaciona a ${x[1]}.`);
+
+ add("História",4,`Para estudar ${x[0]}, historiadores devem analisar:`,["contextos e fontes","apenas opiniões atuais","somente uma imagem sem contexto","números aleatórios"],0,"Contexto e fontes ajudam a construir conhecimento histórico.");
+
+ add("História",5,`Uma habilidade importante ao estudar ${x[0]} é:`,["comparar causas e consequências","decorar sem compreender","ignorar o contexto","usar apenas uma fonte"],0,"A análise histórica relaciona processos, causas e consequências.");
 });
 
-
-/* =====================================================
+/* =========================
    GEOGRAFIA
-===================================================== */
+========================= */
 
-const geoPerguntas = [
-
-[
-"O que um mapa pode representar?",
-[
-"Espaços e territórios",
-"Apenas histórias fictícias",
-"Somente números",
-"Um órgão humano"
-],
-0,
-"Mapas são representações de espaços geográficos."
-],
-
-[
-"Qual situação representa uma migração?",
-[
-"Uma pessoa muda de cidade para viver",
-"Uma árvore cresce",
-"Um rio corre",
-"Uma pedra permanece parada"
-],
-0,
-"Migração envolve deslocamento de pessoas."
-],
-
-[
-"Qual é a diferença principal entre tempo e clima?",
-[
-"Tempo é momentâneo e clima envolve longos períodos",
-"São exatamente a mesma coisa",
-"Clima dura apenas alguns minutos",
-"Tempo existe apenas no espaço"
-],
-0,
-"O clima é observado por períodos prolongados."
-],
-
-[
-"Urbanização está relacionada principalmente:",
-[
-"Ao crescimento das cidades",
-"Ao desaparecimento de pessoas",
-"À criação de planetas",
-"À divisão de células"
-],
-0,
-"Urbanização envolve expansão e crescimento de áreas urbanas."
-],
-
-[
-"Recursos naturais são:",
-[
-"Elementos disponíveis na natureza utilizados pelas sociedades",
-"Somente aplicativos",
-"Tipos de verbos",
-"Equações"
-],
-0,
-"Água, solo e minerais são exemplos de recursos naturais."
-],
-
-[
-"Globalização pode ser entendida como:",
-[
-"Aumento das conexões entre diferentes partes do mundo",
-"Desaparecimento dos territórios",
-"Fim das comunicações",
-"Criação de novos planetas"
-],
-0,
-"Ela envolve conexões econômicas, culturais, tecnológicas e sociais."
-]
-
+const geo=[
+["regiões do Brasil","cinco grandes divisões territoriais"],
+["população","conjunto de pessoas de um território"],
+["globalização","aumento das conexões entre lugares"],
+["clima","padrões atmosféricos de longo prazo"],
+["urbanização","crescimento das cidades"],
+["migração","deslocamento de pessoas"],
+["bioma","grande conjunto de ecossistemas"],
+["geopolítica","relações entre poder e território"],
+["cartografia","produção e estudo de mapas"]
 ];
 
+geo.forEach((x,i)=>{
+ add("Geografia",1+(i%2),`"${x[0]}" pode ser definido como:`,[x[1],"Uma operação matemática","Uma classe gramatical","Um órgão"],0,`A definição correta é ${x[1]}.`);
 
-anos.forEach((ano,ai)=>{
+ add("Geografia",2+(i%3),`A Geografia ajuda a compreender "${x[0]}" porque analisa:`,["relações entre sociedade e espaço","apenas palavras","somente equações","apenas células"],0,"A Geografia estuda fenômenos espaciais e suas relações.");
 
- geoPerguntas.forEach((q,i)=>{
+ add("Geografia",4,`Qual análise é mais adequada para estudar ${x[0]}?`,["considerar território e sociedade","ignorar o espaço","usar apenas uma opinião","não observar dados"],0,"Fenômenos geográficos precisam ser analisados em seu contexto espacial.");
 
-  adicionarPergunta(
-   ano,
-   "Geografia",
-   Math.min(5,1+Math.floor((i+ai)/2)),
-   q[0],
-   q[1],
-   q[2],
-   q[3]
-  );
-
- });
-
+ add("Geografia",5,`Uma consequência possível ligada a ${x[0]} deve ser estudada considerando:`,["diferentes fatores e escalas","uma única causa sempre","nenhuma evidência","apenas sorte"],0,"Fenômenos geográficos costumam envolver múltiplos fatores.");
 });
 
+document.getElementById("totalQ").textContent=
+Object.values(banco).reduce((a,b)=>a+b.length,0);
 
-/* =====================================================
-   GERADOR DE VARIAÇÕES CONTEXTUALIZADAS
-===================================================== */
+/* =========================
+   QUIZ ADAPTATIVO
+========================= */
 
-const contextos = [
-"uma escola",
-"uma biblioteca",
-"uma cidade",
-"um grupo de estudantes",
-"uma pesquisa",
-"uma turma",
-"uma comunidade",
-"um laboratório",
-"um parque",
-"uma empresa fictícia"
-];
+let materia="";
+let nivel=1;
+let atual=null;
+let respondido=false;
+let usadas=new Set();
 
+let stats=JSON.parse(
+ localStorage.getItem("VA_stats")||
+ '{"respondidas":0,"acertos":0}'
+);
 
-/* Gera perguntas conceituais com formulações variadas */
+function iniciar(a){
+ materia=a;
+ nivel=1;
+ usadas=new Set();
 
-materias.forEach(materia=>{
+ document.getElementById("startQuiz").classList.add("hidden");
+ document.getElementById("quizbox").classList.remove("hidden");
 
- anos.forEach((ano,indiceAno)=>{
+ proxima();
+}
 
-  for(let i=0;i<60;i++){
+function proxima(){
+ respondido=false;
 
-   let contexto =
-   contextos[i%contextos.length];
+ document.getElementById("feedback").textContent="";
+ document.getElementById("proxima").classList.add("hidden");
 
-   let dificuldade =
-   1+(i%5);
+ const pool=banco[materia].filter((q,i)=>
+  Math.abs(q.d-nivel)<=1&&!usadas.has(materia+i)
+ );
 
-   let pergunta;
-   let correta;
-   let erradas;
-   let explicacao;
+ let indice;
+ let escolha;
 
-   if(materia==="Português"){
+ if(pool.length){
+  escolha=pool[Math.floor(Math.random()*pool.length)];
+  indice=banco[materia].indexOf(escolha);
+ }else{
+  usadas.clear();
+  escolha=banco[materia][Math.floor(Math.random()*banco[materia].length)];
+  indice=banco[materia].indexOf(escolha);
+ }
 
-    const verbo =
-    palavras.verbos[i%palavras.verbos.length];
+ usadas.add(materia+indice);
+ atual=escolha;
 
-    pergunta =
-    `Em uma atividade de ${contexto}, a palavra "${verbo}" aparece em uma frase. Qual função ela normalmente pode exercer?`;
+ document.getElementById("area").textContent=materia;
+ document.getElementById("nivel").textContent=nivel;
+ document.getElementById("pergunta").textContent=atual.pergunta;
 
-    correta =
-    "Indicar uma ação ou estado";
+ const box=document.getElementById("opcoes");
+ box.innerHTML="";
 
-    erradas=[
-    "Nomear exclusivamente um lugar",
-    "Representar um número",
-    "Indicar um planeta"
-    ];
-
-    explicacao =
-    `"${verbo}" é um verbo e pode indicar ação ou estado.`;
-
-   }
-
-
-   if(materia==="Ciências"){
-
-    pergunta =
-    `Durante uma investigação realizada em ${contexto}, pesquisadores analisam relações entre organismos e ambiente. Qual área está mais relacionada a esse estudo?`;
-
-    correta="Ecologia";
-
-    erradas=[
-    "Pontuação",
-    "Ortografia",
-    "Geometria plana"
-    ];
-
-    explicacao =
-    "A ecologia estuda relações entre seres vivos e seus ambientes.";
-
-   }
-
-
-   if(materia==="História"){
-
-    pergunta =
-    `Pesquisadores encontram cartas, objetos e fotografias de ${contexto}. Esses materiais podem ser utilizados principalmente como:`;
-
-    correta="Fontes históricas";
-
-    erradas=[
-    "Resultados matemáticos",
-    "Corpos celestes",
-    "Elementos químicos"
-    ];
-
-    explicacao =
-    "Documentos e objetos podem funcionar como fontes para compreender sociedades.";
-
-   }
-
-
-   if(materia==="Geografia"){
-
-    pergunta =
-    `Ao estudar ${contexto}, pesquisadores observam como pessoas, natureza e atividades humanas transformam determinado território. Esse estudo está relacionado principalmente a:`;
-
-    correta="Espaço geográfico";
-
-    erradas=[
-    "Sistema digestório",
-    "Classe gramatical",
-    "Equação do segundo grau"
-    ];
-
-    explicacao =
-    "A Geografia analisa relações entre sociedade, natureza e espaço.";
-
-   }
-
-
-   if(materia==="Matemática"){
-
-    let a = 5+i;
-    let b = 3+(i%12);
-
-    pergunta =
-    `Em ${contexto}, existem ${a} grupos com ${b} elementos cada. Quantos elementos existem ao todo?`;
-
-    correta=String(a*b);
-
-    erradas=[
-    String(a+b),
-    String(a*b+b),
-    String(a*b-a)
-    ];
-
-    explicacao =
-    `São ${a} grupos de ${b}, então calculamos ${a} × ${b} = ${a*b}.`;
-
-   }
-
-
-   adicionarPergunta(
-    ano,
-    materia,
-    Math.min(5,dificuldade+Math.floor(indiceAno/2)),
-    pergunta,
-    [correta,...erradas],
-    0,
-    explicacao
-   );
-
-  }
-
+ atual.opcoes.forEach((op,i)=>{
+  const b=document.createElement("button");
+  b.className="option";
+  b.textContent=op;
+  b.onclick=()=>responder(i);
+  box.appendChild(b);
  });
-
-});
-
-
-/* =====================================================
-   ESTATÍSTICAS
-===================================================== */
-
-let stats =
-JSON.parse(
- localStorage.getItem("VA_PROGRESSO")
-)
-||
-{
- respondidas:0,
- acertos:0,
- erros:0
-};
-
-
-function atualizarProgresso(){
-
- document.getElementById("respondidas").innerText =
- stats.respondidas;
-
- document.getElementById("acertos").innerText =
- stats.acertos;
-
- document.getElementById("erros").innerText =
- stats.erros;
-
- let precisao = 0;
-
- if(stats.respondidas > 0){
-
-  precisao =
-  Math.round(
-   stats.acertos /
-   stats.respondidas *
-   100
-  );
-
- }
-
- document.getElementById("precisao").innerText =
- precisao + "%";
-
- document.getElementById("barra").style.width =
- precisao + "%";
-
- localStorage.setItem(
-  "VA_PROGRESSO",
-  JSON.stringify(stats)
- );
-
 }
 
+function responder(i){
+ if(respondido)return;
 
-/* =====================================================
-   ABRIR QUIZ
-===================================================== */
+ respondido=true;
 
-function abrirQuiz(){
-
- nivelAtual = 1;
- perguntasUsadas = [];
-
- document
- .getElementById("quizArea")
- .classList
- .remove("hidden");
-
- document.getElementById("quizTitulo").innerText =
- anoAtual + " • " + materiaAtual;
-
- carregarPergunta();
-
- irPara("quizArea");
-
-}
-
-
-/* =====================================================
-   ESCOLHER PERGUNTA
-===================================================== */
-
-function carregarPergunta(){
-
- respondeu = false;
-
- let lista =
- banco[anoAtual][materiaAtual]
- .filter(q=>q.dificuldade===nivelAtual);
-
-
- /* Se não houver nível exato */
-
- if(lista.length===0){
-
-  lista =
-  banco[anoAtual][materiaAtual];
-
- }
-
-
- /* Evitar repetição */
-
- let disponiveis =
- lista.filter(q=>
-  !perguntasUsadas.includes(q)
- );
-
-
- /* Reinicia apenas quando realmente acabou */
-
- if(disponiveis.length===0){
-
-  perguntasUsadas=[];
-
-  disponiveis=lista;
-
- }
-
-
- perguntaAtual =
- disponiveis[
- Math.floor(
- Math.random()*disponiveis.length
- )
- ];
-
- perguntasUsadas.push(perguntaAtual);
-
-
- document.getElementById("nivel").innerText =
- nivelAtual;
-
- document.getElementById("pergunta").innerText =
- perguntaAtual.pergunta;
-
- document.getElementById("feedback").innerHTML =
- "";
-
- document
- .getElementById("proxima")
- .classList
- .add("hidden");
-
-
- const area =
- document.getElementById("opcoes");
-
- area.innerHTML = "";
-
-
- /* Criar alternativas */
-
- let alternativas =
- perguntaAtual.opcoes.map(
- (texto,index)=>({
-
-  texto:texto,
-
-  correta:
-  index===perguntaAtual.resposta
-
- })
- );
-
-
- /* Fisher-Yates shuffle */
-
- for(
-  let i=alternativas.length-1;
-  i>0;
-  i--
- ){
-
-  const j =
-  Math.floor(
-   Math.random()*(i+1)
-  );
-
-  [
-   alternativas[i],
-   alternativas[j]
-  ]
-  =
-  [
-   alternativas[j],
-   alternativas[i]
-  ];
-
- }
-
-
- alternativas.forEach(opcao=>{
-
-  const botao =
-  document.createElement("button");
-
-  botao.className =
-  "option";
-
-  botao.innerText =
-  opcao.texto;
-
-  botao.onclick =
-  function(){
-
-   responder(
-    botao,
-    opcao.correta
-   );
-
-  };
-
-  area.appendChild(botao);
-
- });
-
-}
-
-
-/* =====================================================
-   RESPONDER
-===================================================== */
-
-function responder(botao,correta){
-
- if(respondeu) return;
-
- respondeu = true;
-
- document
- .querySelectorAll(".option")
- .forEach(b=>b.disabled=true);
-
+ const bs=[...document.querySelectorAll(".option")];
+ bs.forEach(b=>b.disabled=true);
 
  stats.respondidas++;
 
- const feedback =
- document.getElementById("feedback");
+ const f=document.getElementById("feedback");
 
-
- if(correta){
-
+ if(i===atual.resposta){
+  bs[i].classList.add("correct");
   stats.acertos++;
-
-  botao.classList.add("correct");
-
-  feedback.innerHTML =
-  `✅ <b>Correto!</b><br>
-  ${perguntaAtual.explicacao}`;
-
-  feedback.style.color =
-  "var(--green)";
-
-
-  /* AUMENTA */
-
-  if(nivelAtual<5){
-
-   nivelAtual++;
-
-  }
-
-
+  nivel=Math.min(5,nivel+1);
+  f.textContent="✅ Correto! Dificuldade aumentou. "+atual.explicacao;
+  f.style.color="var(--green)";
  }else{
-
-  stats.erros++;
-
-  botao.classList.add("wrong");
-
-
-  document
-  .querySelectorAll(".option")
-  .forEach(b=>{
-
-   if(
-    b.innerText ===
-    perguntaAtual.opcoes[
-     perguntaAtual.resposta
-    ]
-   ){
-
-    b.classList.add("correct");
-
-   }
-
-  });
-
-
-  feedback.innerHTML =
-  `❌ <b>Resposta incorreta.</b><br>
-  ${perguntaAtual.explicacao}`;
-
-  feedback.style.color =
-  "var(--red)";
-
-
-  /* DIMINUI */
-
-  if(nivelAtual>1){
-
-   nivelAtual--;
-
-  }
-
+  bs[i].classList.add("wrong");
+  bs[atual.resposta].classList.add("correct");
+  nivel=Math.max(1,nivel-1);
+  f.textContent="❌ Resposta incorreta. Dificuldade ajustada. "+atual.explicacao;
+  f.style.color="var(--red)";
  }
 
+ localStorage.setItem("VA_stats",JSON.stringify(stats));
+ atualizarStats();
 
- atualizarProgresso();
-
-
- document
- .getElementById("proxima")
- .classList
- .remove("hidden");
-
+ document.getElementById("proxima").classList.remove("hidden");
 }
 
+function atualizarStats(){
+ document.getElementById("respondidas").textContent=stats.respondidas;
+ document.getElementById("acertos").textContent=stats.acertos;
 
-/* =====================================================
-   PRÓXIMA
-===================================================== */
+ let p=stats.respondidas?
+ Math.round(stats.acertos/stats.respondidas*100):0;
 
-function proximaPergunta(){
-
- carregarPergunta();
-
+ document.getElementById("porcentagem").textContent=p+"%";
+ document.getElementById("fill").style.width=p+"%";
 }
 
+atualizarStats();
 
-/* =====================================================
-   CONTADOR DO BANCO
-===================================================== */
-
-function contarPerguntas(){
-
- let total = 0;
-
- Object.keys(banco)
- .forEach(ano=>{
-
-  Object.keys(banco[ano])
-  .forEach(materia=>{
-
-   total +=
-   banco[ano][materia].length;
-
-  });
-
- });
-
- return total;
-
-}
-
-
-/* =====================================================
-   INICIALIZAÇÃO
-===================================================== */
-
-atualizarProgresso();
-
-console.log("=================================");
-console.log("VIVENDO E APRENDENDO");
-console.log("Sistema iniciado com sucesso!");
-console.log(
-"Total de perguntas:",
-contarPerguntas()
-);
-console.log("=================================");
-
+document.getElementById("busca").addEventListener("keydown",e=>{
+ if(e.key==="Enter")ensinar();
+});
 </script>
-
 </body>
  </html>
